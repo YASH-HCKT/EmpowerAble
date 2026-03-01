@@ -35,11 +35,11 @@ function Navbar() {
                 </Link>
                 <ul className="navbar__links">
                     <li><Link to="/" className={`navbar__link ${getActiveClass('/')}`}>Home</Link></li>
-                    <li><a href="/map.html" className="navbar__link">Explore Map</a></li>
-                    <li><a href="/community.html" className="navbar__link">Community</a></li>
-                    <li><a href="/profile.html" className="navbar__link">Profile</a></li>
-                    <li><a href="/ai-support.html" className="navbar__link">AI Support</a></li>
-                    <li><a href="/pricing.html" className="navbar__link">Pricing</a></li>
+                    <li><a href="/map.html" className={`navbar__link ${getActiveClass('/map.html')}`}>Explore Map</a></li>
+                    <li><a href="/community.html" className={`navbar__link ${getActiveClass('/community.html')}`}>Community</a></li>
+                    <li><a href="/ai-support.html" className={`navbar__link ${getActiveClass('/ai-support.html')}`}>AI Support</a></li>
+                    <li><a href="/profile.html" className={`navbar__link ${getActiveClass('/profile.html')}`}>Profile</a></li>
+                    <li><a href="/pricing.html" className={`navbar__link ${getActiveClass('/pricing.html')}`}>Pricing</a></li>
                 </ul>
                 <div className="navbar__profile" ref={profileRef}>
                     <button className="navbar__profile-trigger" onClick={toggleProfile}>
