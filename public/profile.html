@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EmpowerAble | Premium Accessibility Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0a3622", // Deep forest green
+                        "accent": "#2d5a43",
+                        "background-light": "#E8fac2", // Mint cream
+                        "background-dark": "#051b11",
+                        "card-light": "#f4fde6",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "20px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        :root {
+            --color-lime: #EBFAC2;
+            --color-lime-dark: #D4E8A0;
+            --color-green-dark: #114B31;
+            --color-green-medium: #1A6B45;
+            --color-amber: #FFBF00;
+            --color-amber-dark: #E6AC00;
+            --color-beige: #F0EFED;
+            --color-beige-light: #F5F4F2;
+            --color-white: #FFFFFF;
+            --color-black: #111111;
+            --max-width: 1400px;
+            --transition: all 0.3s ease;
+            --font-heading: 'aether', 'Aboreto', serif;
+            --font-body: 'aether', 'Inter', sans-serif;
+        }
+
+        @font-face {
+            font-family: 'aether';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("https://static.parastorage.com/fonts/v2/d1f4aaca-ba32-45fe-a717-4dff34a09bca/v1/aether.latin.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: 'aether';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url("https://static.parastorage.com/fonts/v2/b7cac872-10e6-48a7-aacc-39212836977c/v1/aether.latin.woff2") format("woff2");
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--color-lime);
+            padding: 20px 0;
+        }
+
+        .navbar__container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar__logo {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .navbar__logo-empower {
+            color: var(--color-amber);
+        }
+
+        .navbar__logo-able {
+            color: var(--color-amber);
+            font-weight: 900;
+        }
+
+        .navbar__links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar__link {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--color-green-dark);
+            position: relative;
+            padding: 4px 0;
+            text-decoration: none;
+        }
+
+        .navbar__link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-green-dark);
+            transition: var(--transition);
+        }
+
+        .navbar__link:hover::after,
+        .navbar__link--active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .navbar__container {
+                padding: 0 24px;
+            }
+
+            .navbar__links {
+                gap: 20px;
+            }
+
+            .navbar__link {
+                font-size: 0.9rem;
+            }
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #E8fac2;
+        }
+
+        .custom-card {
+            background-color: #f4fde6;
+            border: 1px solid rgba(10, 54, 34, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-primary dark:text-slate-100 antialiased">
+    <!-- Standardized Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar__container">
+            <a href="/" class="navbar__logo">
+                <span class="navbar__logo-empower">Empower</span>
+                <span class="navbar__logo-able">Able</span>
+            </a>
+            <ul class="navbar__links">
+                <li><a href="/" class="navbar__link">Home</a></li>
+                <li><a href="/map.html" class="navbar__link">Explore Map</a></li>
+                <li><a href="/community.html" class="navbar__link">Community</a></li>
+                <li><a href="/profile.html" class="navbar__link navbar__link--active">Profile</a></li>
+                <li><a href="/#about" class="navbar__link">About</a></li>
+                <li><a href="/pricing.html" class="navbar__link">Pricing</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="flex min-h-screen">
+        <!-- Main Content -->
+        <main class="flex-1 p-10 max-w-7xl mx-auto">
+            <!-- Header Section -->
+            <div class="mb-10 flex justify-between items-end">
+                <div>
+                    <h2 class="text-4xl font-bold text-primary mb-2">Member Profile</h2>
+                    <p class="text-primary/70 font-medium">Welcome back to your personalized accessibility hub.</p>
+                </div>
+                <div class="flex gap-4">
+                    <button
+                        class="bg-white text-slate-700 border border-slate-200 shadow-sm px-6 py-3 rounded-xl font-bold flex items-center gap-3 hover:bg-slate-50 transition-colors">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24">
+                            <path
+                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                                fill="#4285F4" />
+                            <path
+                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                                fill="#34A853" />
+                            <path
+                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                                fill="#FBBC05" />
+                            <path
+                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                                fill="#EA4335" />
+                        </svg>
+                        Sign in with Google
+                    </button>
+                    <button
+                        class="bg-primary text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:opacity-90 transition-opacity">
+                        <span class="material-symbols-outlined text-sm">edit</span>
+                        Edit Profile
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-12 gap-8">
+                <!-- Left Column (Identity & Cards) -->
+                <div class="col-span-12 lg:col-span-7 space-y-8">
+                    <!-- Profile Card -->
+                    <section class="bg-card-light dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-primary/5">
+                        <div class="flex gap-8 items-center">
+                            <div class="relative group cursor-pointer"
+                                onclick="document.getElementById('profile-upload').click()">
+                                <img id="profile-image" alt="Profile"
+                                    class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg group-hover:opacity-80 transition-opacity"
+                                    data-alt="Professional portrait of a smiling person with dark hair"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr-5lqZuLTLiQnfvakHrBNy-vTgPQO7PW2B6ll94IIKvsYWrykUsOjfbPEll30cZ8FBrb6lATyDHHX2wXBVRZ41xS-RlzGZwh_a5UNHFYFzp0o_rLFLNWfqXCCUDLR3Zxf7zgfdjHYc7CcdX928pZCsegxmcUafNe-Du9VwAhhyTeTqsYNmH03ISJUY1n6d9eCwMaDYjRhlpW6wNwv2JQM3RArXtVxh4rr5wzkQn5boUI0p3vvXrv4qUtnxfnKtmFadfsQXQi9aKU" />
+                                <div
+                                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span
+                                        class="material-symbols-outlined text-white text-3xl drop-shadow-md">photo_camera</span>
+                                </div>
+                                <div
+                                    class="absolute bottom-1 right-1 bg-green-500 w-5 h-5 rounded-full border-2 border-white z-10">
+                                </div>
+                                <input type="file" id="profile-upload" class="hidden" accept="image/*"
+                                    onchange="previewProfileImage(event)" />
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1 group">
+                                    <h3 id="user-name" class="text-2xl font-bold text-primary">Alex Rivera</h3>
+                                    <button onclick="editField('user-name', 'Name')"
+                                        class="opacity-0 group-hover:opacity-100 text-primary/50 hover:text-primary transition-all">
+                                        <span class="material-symbols-outlined text-sm">edit</span>
+                                    </button>
+                                </div>
+                                <div class="group relative mb-4">
+                                    <p id="user-desc" class="text-primary/70 italic leading-relaxed pr-8">"Passionate
+                                        about creating a
+                                        world where navigation is a human right, not a privilege. Community advocate
+                                        since
+                                        2021."</p>
+                                    <button onclick="editField('user-desc', 'Description')"
+                                        class="absolute top-0 right-0 opacity-0 group-hover:opacity-100 text-primary/50 hover:text-primary transition-all">
+                                        <span class="material-symbols-outlined text-sm">edit</span>
+                                    </button>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                                        <span class="material-symbols-outlined text-sm">accessible</span>
+                                        Wheelchair
+                                    </span>
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                                        <span class="material-symbols-outlined text-sm">visibility</span>
+                                        Low Vision
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Identity Card -->
+                    <section>
+                        <h4 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined">badge</span>
+                            Accessibility Identity Card
+                        </h4>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="bg-primary text-white p-6 rounded-2xl shadow-md relative overflow-hidden group">
+                                <div
+                                    class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                    <span class="material-symbols-outlined text-6xl">query_stats</span>
+                                </div>
+                                <p class="text-white/70 text-sm font-medium mb-1">Impact Score</p>
+                                <div class="flex items-end gap-3">
+                                    <span class="text-4xl font-bold">840</span>
+                                    <span class="text-green-300 text-sm font-bold mb-1 flex items-center">
+                                        <span class="material-symbols-outlined text-xs">arrow_upward</span> 12%
+                                    </span>
+                                </div>
+                                <div class="mt-4 w-full bg-white/10 h-1.5 rounded-full">
+                                    <div class="bg-green-400 h-full rounded-full" style="width: 84%"></div>
+                                </div>
+                            </div>
+                            <div class="bg-card-light border-2 border-primary/10 p-6 rounded-2xl shadow-sm">
+                                <p class="text-primary/70 text-sm font-medium mb-1">Safety Status</p>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-4xl font-bold text-primary">Active</span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span>
+                                </div>
+                                <p class="text-xs text-primary/50 mt-4 font-semibold uppercase tracking-tighter">
+                                    Verified Identity Secure</p>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Contributions -->
+                    <section>
+                        <h4 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined">reviews</span>
+                            Community Contributions
+                        </h4>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="bg-white/50 p-4 rounded-2xl border border-primary/5 text-center">
+                                <p class="text-2xl font-bold text-primary">124</p>
+                                <p class="text-xs text-primary/60 font-medium">Reports</p>
+                            </div>
+                            <div class="bg-white/50 p-4 rounded-2xl border border-primary/5 text-center">
+                                <p class="text-2xl font-bold text-primary">56</p>
+                                <p class="text-xs text-primary/60 font-medium">Ratings</p>
+                            </div>
+                            <div class="bg-white/50 p-4 rounded-2xl border border-primary/5 text-center">
+                                <p class="text-2xl font-bold text-primary">12</p>
+                                <p class="text-xs text-primary/60 font-medium">Edits</p>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Communities Joined -->
+                    <section>
+                        <h4 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined">group</span>
+                            Communities Joined
+                        </h4>
+                        <div class="space-y-3">
+                            <a href="/community.html"
+                                class="flex items-center justify-between p-3 rounded-xl bg-card-light dark:bg-slate-800 border border-primary/10 hover:border-primary/30 transition-colors shadow-sm">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                        <span class="material-symbols-outlined">fitness_center</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-primary">Adaptive Fitness</p>
+                                        <p class="text-xs text-primary/60">1.2k Members</p>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-primary/30">chevron_right</span>
+                            </a>
+                            <a href="/community.html"
+                                class="flex items-center justify-between p-3 rounded-xl bg-card-light dark:bg-slate-800 border border-primary/10 hover:border-primary/30 transition-colors shadow-sm">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+                                        <span class="material-symbols-outlined">memory</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-primary">Accessible Tech Pioneers</p>
+                                        <p class="text-xs text-primary/60">850 Members</p>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-primary/30">chevron_right</span>
+                            </a>
+                            <a href="/community.html"
+                                class="flex items-center justify-between p-3 rounded-xl bg-card-light dark:bg-slate-800 border border-primary/10 hover:border-primary/30 transition-colors shadow-sm">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                                        <span class="material-symbols-outlined">park</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-primary">Outdoor Explorers</p>
+                                        <p class="text-xs text-primary/60">420 Members</p>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-primary/30">chevron_right</span>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+                <!-- Right Column (Settings & Stats) -->
+                <div class="col-span-12 lg:col-span-5 space-y-8">
+                    <!-- Emergency Settings -->
+                    <section class="bg-white p-8 rounded-2xl shadow-sm border border-red-100 h-fit">
+                        <div class="flex items-center justify-between mb-6">
+                            <h4 class="text-lg font-bold text-red-900 flex items-center gap-2">
+                                <span class="material-symbols-outlined">emergency</span>
+                                Emergency Settings
+                            </h4>
+                            <span class="material-symbols-outlined text-red-600">notification_important</span>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between p-3 rounded-xl bg-red-50">
+                                <div>
+                                    <p class="text-sm font-bold text-red-900">Fall Detection</p>
+                                    <p class="text-xs text-red-800/60">Auto-alert contacts on fall</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input checked="" class="sr-only peer" type="checkbox" />
+                                    <div
+                                        class="w-11 h-6 bg-red-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600">
+                                    </div>
+                                </label>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                                <div>
+                                    <p class="text-sm font-bold text-primary">Location Sharing</p>
+                                    <p class="text-xs text-primary/60">Live feed with trusted list</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input class="sr-only peer" type="checkbox" />
+                                    <div
+                                        class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="pt-4 border-t border-red-50">
+                                <p class="text-xs font-bold text-primary/40 uppercase mb-4 tracking-wider">Trusted
+                                    Contacts</p>
+                                <div id="contact-list" class="space-y-3">
+                                    <div class="contact-item flex items-center gap-3 group">
+                                        <div
+                                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-primary">
+                                            SR</div>
+                                        <div class="flex-1">
+                                            <p class="text-sm font-bold">Sarah Rivera</p>
+                                            <p class="text-[10px] text-primary/60">Primary Contact • Family</p>
+                                        </div>
+                                        <button class="text-primary/30 hover:text-primary transition-colors"><span
+                                                class="material-symbols-outlined text-lg">call</span></button>
+                                        <button onclick="this.closest('.contact-item').remove()"
+                                            class="text-red-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-all ml-1"><span
+                                                class="material-symbols-outlined text-lg">delete</span></button>
+                                    </div>
+                                    <div class="contact-item flex items-center gap-3 group">
+                                        <div
+                                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-primary">
+                                            MJ</div>
+                                        <div class="flex-1">
+                                            <p class="text-sm font-bold">Marcus Johnson</p>
+                                            <p class="text-[10px] text-primary/60">Emergency Responder</p>
+                                        </div>
+                                        <button class="text-primary/30 hover:text-primary transition-colors"><span
+                                                class="material-symbols-outlined text-lg">call</span></button>
+                                        <button onclick="this.closest('.contact-item').remove()"
+                                            class="text-red-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-all ml-1"><span
+                                                class="material-symbols-outlined text-lg">delete</span></button>
+                                    </div>
+                                </div>
+                                <button onclick="addNewContact()"
+                                    class="w-full mt-6 py-2 border-2 border-dashed border-primary/20 rounded-xl text-primary/50 text-xs font-bold hover:border-primary/40 hover:text-primary cursor-pointer transition-all">
+                                    + Add New Contact
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Accessibility Map Snippet -->
+                    <section class="bg-card-light rounded-2xl overflow-hidden border border-primary/10">
+                        <div class="h-40 bg-slate-200 relative">
+                            <div class="absolute inset-0 bg-cover bg-center"
+                                data-alt="Stylized map showing neighborhood streets with accessibility pins"
+                                data-location="San Francisco"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkid1x6ztNH8g2yhkyI7QJYD8YMYcBU5Qfn1TsXobnUFAs-eOh8nqp6qB5noC4V_fZ_xkxKP28x4JNut7XfLGPwtq00Zftnxo9Jw583QomMrUkbwx9yjtFIlWp7O82UbPSzpV_De_U1shPl6X8KXpRGMyzJeyehmvUwOSLfmKvOYyxGouOogG1KIdnWm_BBEcwnq8PzX3oxZJpLYFqZY9sCVgyH71rn_9Y1lQv0on9Yt4r6ZS0pzkQpurVj6A65zRI0Ie3d8R7Oto')">
+                            </div>
+                            <div class="absolute inset-0 bg-primary/20"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="bg-white p-2 rounded-full shadow-lg">
+                                    <span class="material-symbols-outlined text-primary">location_on</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h5 class="font-bold text-primary mb-1">Local Accessibility Hub</h5>
+                            <p class="text-xs text-primary/60">View accessible routes and verified businesses near your
+                                current location.</p>
+                            <a href="/map.html"
+                                class="block text-center w-full mt-4 py-2 bg-primary text-white text-xs font-bold rounded-lg hover:opacity-90 transition-opacity">Open
+                                Map</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        function previewProfileImage(event) {
+            const input = event.target;
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profile-image').src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function editField(id, fieldName) {
+            const el = document.getElementById(id);
+            const currentText = el.innerText.replace(/"/g, '');
+            const newText = prompt(`Enter new ${fieldName}:`, currentText);
+            if (newText !== null && newText.trim() !== '') {
+                el.innerText = fieldName === 'Description' ? `"${newText.trim()}"` : newText.trim();
+            }
+        }
+
+        function addNewContact() {
+            const name = prompt("Enter contact name:");
+            if (!name) return;
+            const relation = prompt("Enter relationship/role (e.g. Family, Doctor):");
+            if (!relation) return;
+
+            const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+
+            const contactHtml = `
+                <div class="contact-item flex items-center gap-3 group">
+                    <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-primary">${initials}</div>
+                    <div class="flex-1">
+                        <p class="text-sm font-bold">${name}</p>
+                        <p class="text-[10px] text-primary/60">${relation}</p>
+                    </div>
+                    <button class="text-primary/30 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">call</span></button>
+                    <button onclick="this.closest('.contact-item').remove()" class="text-red-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-all ml-1"><span class="material-symbols-outlined text-lg">delete</span></button>
+                </div>
+            `;
+            document.getElementById('contact-list').insertAdjacentHTML('beforeend', contactHtml);
+        }
+    </script>
+</body>
+
+</html>

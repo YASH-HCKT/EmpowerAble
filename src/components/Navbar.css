@@ -1,0 +1,77 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--color-lime);
+    padding: 20px 0;
+}
+
+.navbar__container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar__logo {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.navbar__logo-empower {
+    color: var(--color-amber);
+}
+
+.navbar__logo-able {
+    color: var(--color-amber);
+    font-weight: 900;
+}
+
+.navbar__links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.navbar__link {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-green-dark);
+    position: relative;
+    padding: 4px 0;
+}
+
+.navbar__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-green-dark);
+    transition: var(--transition);
+}
+
+.navbar__link:hover::after,
+.navbar__link--active::after {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .navbar__container {
+        padding: 0 24px;
+    }
+
+    .navbar__links {
+        gap: 20px;
+    }
+
+    .navbar__link {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EmpowerAble Community</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06372b",
+                        "accent-gold": "#06372b",
+                        "accent-bronze": "#2d4a43",
+                        "background-light": "#E8fac2",
+                        "background-dark": "#04211a",
+                        "card-beige": "#d9ebb6",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.25rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }</script>
+    <style>
+        :root {
+            --color-lime: #EBFAC2;
+            --color-lime-dark: #D4E8A0;
+            --color-green-dark: #114B31;
+            --color-green-medium: #1A6B45;
+            --color-amber: #FFBF00;
+            --color-amber-dark: #E6AC00;
+            --color-beige: #F0EFED;
+            --color-beige-light: #F5F4F2;
+            --color-white: #FFFFFF;
+            --color-black: #111111;
+            --max-width: 1400px;
+            --transition: all 0.3s ease;
+            --font-heading: 'aether', 'Aboreto', serif;
+            --font-body: 'aether', 'Inter', sans-serif;
+        }
+
+        @font-face {
+            font-family: 'aether';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("https://static.parastorage.com/fonts/v2/d1f4aaca-ba32-45fe-a717-4dff34a09bca/v1/aether.latin.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: 'aether';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url("https://static.parastorage.com/fonts/v2/b7cac872-10e6-48a7-aacc-39212836977c/v1/aether.latin.woff2") format("woff2");
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--color-lime);
+            padding: 20px 0;
+        }
+
+        .navbar__container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar__logo {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .navbar__logo-empower {
+            color: var(--color-amber);
+        }
+
+        .navbar__logo-able {
+            color: var(--color-amber);
+            font-weight: 900;
+        }
+
+        .navbar__links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar__link {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--color-green-dark);
+            position: relative;
+            padding: 4px 0;
+            text-decoration: none;
+        }
+
+        .navbar__link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-green-dark);
+            transition: var(--transition);
+        }
+
+        .navbar__link:hover::after,
+        .navbar__link--active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .navbar__container {
+                padding: 0 24px;
+            }
+
+            .navbar__links {
+                gap: 20px;
+            }
+
+            .navbar__link {
+                font-size: 0.9rem;
+            }
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .soft-gradient {
+            background: linear-gradient(135deg, #E8fac2 0%, #d9ebb6 100%);
+        }
+
+        .dark .soft-gradient {
+            background: linear-gradient(135deg, #04211a 0%, #06372b 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark dark:text-slate-100 min-h-screen text-primary">
+    <!-- Standardized Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar__container">
+            <a href="/" class="navbar__logo">
+                <span class="navbar__logo-empower">Empower</span>
+                <span class="navbar__logo-able">Able</span>
+            </a>
+            <ul class="navbar__links">
+                <li><a href="/" class="navbar__link">Home</a></li>
+                <li><a href="/map.html" class="navbar__link">Explore Map</a></li>
+                <li><a href="/community.html" class="navbar__link navbar__link--active">Community</a></li>
+                <li><a href="/profile.html" class="navbar__link">Profile</a></li>
+                <li><a href="/#about" class="navbar__link">About</a></li>
+                <li><a href="/pricing.html" class="navbar__link">Pricing</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Hero Banner Section -->
+        <section
+            class="relative rounded-2xl overflow-hidden mb-10 soft-gradient border border-accent-gold/10 p-8 md:p-12">
+            <div class="relative z-10 max-w-2xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">EmpowerAble Community
+                </h2>
+                <p class="text-lg text-slate-700 dark:text-slate-300 mb-8 leading-relaxed">Connect. Encourage. Grow
+                    Together. Join specialized spaces designed for shared experiences and mutual elevation.</p>
+                <div class="flex flex-wrap gap-4">
+                    <button
+                        class="bg-primary hover:bg-primary/90 text-background-light font-semibold py-3 px-6 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/20 transition-all">
+                        <span class="material-symbols-outlined">add_circle</span>
+                        Create Community
+                    </button>
+                    <div
+                        class="flex items-center gap-2 bg-white/50 dark:bg-black/20 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/20">
+                        <span class="material-symbols-outlined text-slate-500">campaign</span>
+                        <span class="text-sm font-medium">12 New discussions today</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Abstract background shape -->
+            <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+                <svg class="h-full w-full" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M44.7,-76.4C58.2,-69.3,70,-58.4,78.2,-45.3C86.4,-32.2,91.1,-16.1,90.4,-0.4C89.7,15.3,83.7,30.5,74.7,43.4C65.7,56.3,53.8,66.8,40.1,73.8C26.5,80.8,11.2,84.3,-3.8,90.9C-18.8,97.5,-33.5,107.2,-46.2,104.2C-58.9,101.2,-69.6,85.5,-77.3,70.5C-85,55.5,-89.7,41.2,-91.7,26.7C-93.7,12.2,-93,-2.5,-89.3,-16.4C-85.6,-30.3,-78.9,-43.3,-68.8,-53.6C-58.7,-63.9,-45.2,-71.5,-31.6,-78.5C-18,-85.5,-4.3,-91.9,10,-91.9C24.3,-91.9,31.2,-83.5,44.7,-76.4Z"
+                        fill="#C6A75E" transform="translate(100 100)"></path>
+                </svg>
+            </div>
+        </section>
+        <!-- Category Filters -->
+        <div class="flex items-center gap-3 overflow-x-auto pb-6 scrollbar-hide">
+            <button class="px-5 py-2 rounded-full bg-primary text-white font-medium whitespace-nowrap">All
+                Communities</button>
+            <button
+                class="px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap">Encouraging</button>
+            <button
+                class="px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap">Fitness
+                &amp; Mobility</button>
+            <button
+                class="px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap">Career
+                Growth</button>
+            <button
+                class="px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap">Emotional
+                Well-being</button>
+            <button
+                class="px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap">Technology</button>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Main Content Area -->
+            <div class="lg:col-span-8 space-y-10">
+                <!-- Community Grid -->
+                <section>
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Featured Spaces</h3>
+                        <a class="text-primary font-semibold text-sm hover:underline" href="#">View all</a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Card 1 -->
+                        <div
+                            class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10 shadow-sm hover:shadow-md transition-shadow group">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="p-3 bg-primary/10 rounded-xl text-primary">
+                                    <span class="material-symbols-outlined text-3xl">sentiment_satisfied</span>
+                                </div>
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">1.2k
+                                    Members</span>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Daily
+                                Motivation</h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">A space to share morning
+                                affirmations, daily wins, and positive energy to start your day right.</p>
+                            <button
+                                class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-background-light transition-all">Join
+                                Space</button>
+                        </div>
+                        <!-- Card 2 -->
+                        <div
+                            class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10 shadow-sm hover:shadow-md transition-shadow group">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="p-3 bg-blue-500/10 rounded-xl text-blue-500">
+                                    <span class="material-symbols-outlined text-3xl">fitness_center</span>
+                                </div>
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">850
+                                    Members</span>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Adaptive
+                                Fitness</h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Personalized routines,
+                                accessibility tips for gyms, and home-based mobility exercises for all levels.</p>
+                            <button
+                                class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-background-light transition-all">Join
+                                Space</button>
+                        </div>
+                        <!-- Card 3 -->
+                        <div
+                            class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10 shadow-sm hover:shadow-md transition-shadow group">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="p-3 bg-purple-500/10 rounded-xl text-purple-500">
+                                    <span class="material-symbols-outlined text-3xl">psychology</span>
+                                </div>
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">2.4k
+                                    Members</span>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Support Circle
+                            </h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Safe, moderated discussions about
+                                emotional resilience, mental health, and navigating life's challenges.</p>
+                            <button
+                                class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-background-light transition-all">Join
+                                Space</button>
+                        </div>
+                        <!-- Card 4 -->
+                        <div
+                            class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10 shadow-sm hover:shadow-md transition-shadow group">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="p-3 bg-green-500/10 rounded-xl text-green-500">
+                                    <span class="material-symbols-outlined text-3xl">work_history</span>
+                                </div>
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">1.1k
+                                    Members</span>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Career Growth
+                                Hub</h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Mentorship, job listings from
+                                inclusive employers, and professional skill-building resources.</p>
+                            <button
+                                class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-background-light transition-all">Join
+                                Space</button>
+                        </div>
+                    </div>
+                </section>
+                <!-- Trending Discussions -->
+                <section>
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="material-symbols-outlined text-primary">trending_up</span>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Trending Discussions</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <!-- Post 1 -->
+                        <div class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10">
+                            <div class="flex gap-4">
+                                <div class="h-12 w-12 rounded-full flex-shrink-0 bg-cover bg-center"
+                                    data-alt="User avatar male portrait"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2QwK1A4qbYuOcdcrUp92XG_3pIO0GWBvWkAJ5P9SdeNm3bDlVCzZ9PsVd81hnCXH30nizwasKfN34R6525uqfGGf1dGyXenlpbqGvvlO3KCAOY_21qX21FqYC38fsoJtUJY-H1T0LtH0fK31-Qfho7S8Ij76WsSuX4tE847sJUabNrTR3tNTGN506VWogUrqadBHBRUbO13H2bqRpLMvGMxD053RrB8ZbUYf74HQNqpLX5GDSLc-ZyWUQp8M8t51O5ZkMf9qcUYg')">
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h5 class="font-bold text-slate-900 dark:text-white">Marcus Chen <span
+                                                class="text-xs font-normal text-slate-500 ml-2">in Career Growth
+                                                Hub</span></h5>
+                                        <span class="text-xs text-slate-400">2h ago</span>
+                                    </div>
+                                    <h6 class="text-lg font-semibold mb-2">How do you handle disclosure during
+                                        interviews?</h6>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2 mb-4">I've been
+                                        debating whether to mention my accommodation needs during the first call or wait
+                                        until the offer. What's worked best for you all in tech roles?</p>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-4">
+                                            <button
+                                                class="flex items-center gap-1.5 text-slate-500 hover:text-primary transition-colors">
+                                                <span class="material-symbols-outlined text-lg">thumb_up</span>
+                                                <span class="text-xs font-bold">24</span>
+                                            </button>
+                                            <button
+                                                class="flex items-center gap-1.5 text-slate-500 hover:text-blue-500 transition-colors">
+                                                <span class="material-symbols-outlined text-lg">favorite</span>
+                                                <span class="text-xs font-bold">18 Support</span>
+                                            </button>
+                                            <button
+                                                class="flex items-center gap-1.5 text-slate-500 hover:text-amber-500 transition-colors">
+                                                <span class="material-symbols-outlined text-lg">lightbulb</span>
+                                                <span class="text-xs font-bold">9 Insightful</span>
+                                            </button>
+                                        </div>
+                                        <button class="text-xs font-bold text-primary flex items-center gap-1">
+                                            <span class="material-symbols-outlined text-sm">comment</span>
+                                            42 Comments
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Post 2 -->
+                        <div class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10">
+                            <div class="flex gap-4">
+                                <div class="h-12 w-12 rounded-full flex-shrink-0 bg-cover bg-center"
+                                    data-alt="User avatar female portrait"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDiKvgSYHlocieK2uFfW83ruiJItoabrgSEPujVN8mIcag391TOpXjFsX0ASk9O6DrBEO2Wqc8xzv31ILrXlxl9IG_VA5VT4pu-cT6CudkTVuANKduJNk454ABuOeJA6Gqwl6wfKC8qfmYamkv9Aq-CmL9HocQUqLOgeADJrmYxFbV1HP9srcrrS6wyjRNypT_gXT6OZs7u0CHv9PHApvQLGYTf_KmYAT9vyTghcRj1UjBuDpcMzhquKTWFi5yHAcP2Uz7nltca7fs')">
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h5 class="font-bold text-slate-900 dark:text-white">Elena Rodriguez <span
+                                                class="text-xs font-normal text-slate-500 ml-2">in Adaptive
+                                                Fitness</span></h5>
+                                        <span class="text-xs text-slate-400">5h ago</span>
+                                    </div>
+                                    <h6 class="text-lg font-semibold mb-2">My first 5k completed using an adaptive
+                                        racer!</h6>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2 mb-4">Three months
+                                        ago I couldn't even imagine being on the track. Thanks to the advice from this
+                                        group on chair setup, I just crossed the finish line today.</p>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-4">
+                                            <button
+                                                class="flex items-center gap-1.5 text-slate-500 hover:text-primary transition-colors">
+                                                <span class="material-symbols-outlined text-lg">thumb_up</span>
+                                                <span class="text-xs font-bold">156</span>
+                                            </button>
+                                            <button
+                                                class="flex items-center gap-1.5 text-slate-500 hover:text-blue-500 transition-colors">
+                                                <span class="material-symbols-outlined text-lg">favorite</span>
+                                                <span class="text-xs font-bold">89 Support</span>
+                                            </button>
+                                        </div>
+                                        <button class="text-xs font-bold text-primary flex items-center gap-1">
+                                            <span class="material-symbols-outlined text-sm">comment</span>
+                                            12 Comments
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Sidebar -->
+            <aside class="lg:col-span-4 space-y-8">
+                <!-- Accessibility Quick Controls -->
+                <div class="bg-accent-gold/5 dark:bg-slate-800/40 p-6 rounded-2xl border border-accent-gold/20">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-accent-gold">visibility</span>
+                        A11y Features
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium">High Contrast</span>
+                            <button class="w-10 h-5 bg-slate-300 rounded-full relative">
+                                <div class="absolute left-1 top-1 bg-white w-3 h-3 rounded-full"></div>
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium">Text Size</span>
+                            <div class="flex bg-slate-200 dark:bg-slate-700 rounded-lg p-1">
+                                <button class="px-2 py-0.5 text-xs font-bold">A</button>
+                                <button
+                                    class="px-2 py-0.5 text-sm font-bold bg-white dark:bg-slate-600 rounded shadow-sm">A</button>
+                                <button class="px-2 py-0.5 text-base font-bold">A</button>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full py-2 bg-primary/10 dark:bg-slate-700 rounded-xl text-sm font-bold flex items-center justify-center gap-2 text-primary">
+                            <span class="material-symbols-outlined text-lg">mic</span>
+                            Enable Voice Assist
+                        </button>
+                    </div>
+                </div>
+                <!-- Today's Encouragement -->
+                <div
+                    class="bg-card-beige dark:bg-slate-800 p-6 rounded-2xl border border-accent-gold/10 relative overflow-hidden">
+                    <span
+                        class="material-symbols-outlined absolute -top-2 -left-2 text-6xl text-accent-gold/10 rotate-12">format_quote</span>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-3 text-sm tracking-widest uppercase">Today's
+                        Reflection</h4>
+                    <p class="italic text-slate-700 dark:text-slate-300 relative z-10">"Disability is not a brave
+                        struggle or courage in the face of adversity. Disability is an art form. It is an ingenious way
+                        of living."</p>
+                    <p class="mt-4 text-xs font-bold text-accent-gold">— Neil Marcus</p>
+                </div>
+                <!-- Top Contributors -->
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-5">Community Leaders</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="h-10 w-10 rounded-full bg-cover bg-center" data-alt="Leader avatar portrait"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvD2w-Ma0s8bzvCml7kNoX-QInUf9wNHZO9Zxq3p5Y95pCD7eXicdSmTfNd_59_pqPK58jrKvvKv4lsZF4c7tYkmoos7xKNr5hwXafi-UiODNVUI33JDOECJgR6U0ErGx54XWxCeCz2zAkDXhrrJ_jMC9tUZfhb6jj85BBA6aEmqes7Cx8m9YRP5qwwSq7Ed8QFyF5DhMr6-UA0qJubqqZkkMnol4WmzgNuBRhlBmlbKdtty0qVSOe8f-ROBYUm28Ne1BtKiAeMJI')">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold">Sarah Jenkins</p>
+                                    <p class="text-[10px] text-slate-500 uppercase">Accessibility Coach</p>
+                                </div>
+                            </div>
+                            <span class="material-symbols-outlined text-primary">verified</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="h-10 w-10 rounded-full bg-cover bg-center" data-alt="Leader avatar portrait"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCiq5Pu2L8l0VgcVHpNBoDYaY8cYeBlY8e8GTXkAyvfeBqNGom0ph_iN3oupVUJYI8zv0-sYJyw2rod5XE-_fI61xN2AcviQ78glngSxTUC0uz6gkWqEdQsn73GmHDoezgq5FF9Qe_CneVUcE9jMEBAXfO9xk4CwJ7uHN8vQr3zwpaznoB9nD76tyzsMhB0umcdIEhpaQjMWP7n3NKkcd_eVezYqsLHWG9M8VBSUyubZbnBIFLl_zdvkYJXQssFJS5K3ksSwMGX9K4')">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold">David Kim</p>
+                                    <p class="text-[10px] text-slate-500 uppercase">Tech Mentor</p>
+                                </div>
+                            </div>
+                            <span class="material-symbols-outlined text-primary">verified</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="h-10 w-10 rounded-full bg-cover bg-center" data-alt="Leader avatar portrait"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQ3w36StSVk-KfzLNMzR5IWrdj_JIoTpkn2HQAiXs4gPhfWsgh3zTkL81cshZG1XLvN02_oqSgeFpnc-jZ7-Dr1jMrKvy1kClayqzV4koBPbYxhSq_PmME-WfQcVSEG2hzpTyo0Jg22ZuQzdCUFf_1hch3oaMe74OiD9ADL1axY5lxDbMx9d4rst4oVpe4WQ8JUjSg4AGZ_0EKG5s1BDpZMfATqw_gBVo7oizPNaebd1LL1mrm95ncbLbjRP2l0y3X_mjbLroM70U')">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold">Maya Patel</p>
+                                    <p class="text-[10px] text-slate-500 uppercase">Fitness Expert</p>
+                                </div>
+                            </div>
+                            <span class="material-symbols-outlined text-primary">verified</span>
+                        </div>
+                    </div>
+                    <button class="material-symbols-outlined text-primary">See all contributors</button>
+                </div>
+                <!-- Guidelines -->
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4">Guidelines</h4>
+                    <ul class="text-sm space-y-3 text-slate-600 dark:text-slate-400">
+                        <li class="flex gap-2">
+                            <span class="material-symbols-outlined text-primary">check_circle</span>
+                            Be kind and supportive.
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-symbols-outlined text-primary">check_circle</span>
+                            Respect medical privacy.
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-symbols-outlined text-primary">check_circle</span>
+                            Share verified information.
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <footer class="mt-20 border-t border-accent-gold/20 bg-card-beige/20 dark:bg-black/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-primary text-3xl">diversity_3</span>
+                        <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">EmpowerAble</h2>
+                    </div>
+                    <p class="max-w-sm text-slate-600 dark:text-slate-400">A modern community platform built on the
+                        pillars of accessibility, empathy, and professional excellence.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Community</h5>
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                        <li><a class="hover:text-primary" href="#">Guidelines</a></li>
+                        <li><a class="hover:text-primary" href="#">Safety Center</a></li>
+                        <li><a class="hover:text-primary" href="#">Help Hub</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Platform</h5>
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                        <li><a class="hover:text-primary" href="#">Accessibility Statement</a></li>
+                        <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+                        <li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-accent-gold/10 text-xs text-slate-500">
+                <p>© 2024 EmpowerAble. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a class="hover:text-primary transition-colors" href="#">Twitter</a>
+                    <a class="hover:text-primary transition-colors" href="#">Instagram</a>
+                    <a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
