@@ -50,19 +50,7 @@ const MapSection = () => {
 
     return (
         <div className="map-page">
-            <header className="map-header">
-                <div className="flex items-center gap-4">
-                    <div className="flex size-10 items-center justify-center rounded-xl bg-primary text-white">
-                        <span className="material-symbols-outlined !text-2xl font-variation-fill">accessibility_new</span>
-                    </div>
-                    <h2 className="text-xl font-black tracking-tight text-primary">EmpowerAble</h2>
-                </div>
-                <nav className="flex items-center gap-8">
-                    <Link to="/" className="text-sm font-bold text-slate-500">Home</Link>
-                    <span className="text-sm font-black text-accent-gold">Map Explore</span>
-                    <button className="bg-red-600 text-white px-6 py-2 rounded-xl text-xs font-black shadow-lg shadow-red-600/20">EMERGENCY</button>
-                </nav>
-            </header>
+
 
             <div className="map-main">
                 <aside className="map-sidebar">

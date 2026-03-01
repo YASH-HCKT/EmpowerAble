@@ -15,16 +15,18 @@ import MapSection from './components/MapSection'
 const LandingPage = () => (
     <>
         <Navbar />
-        <Hero />
-        <AboutUs />
-        <CareOptions />
-        <EnhancingLives />
-        <SpecializedFocus />
-        <OurApproach />
-        <Testimonials />
-        <Partners />
-        <ContactUs />
-        <Footer />
+        <div className="pt-[80px]">
+            <Hero />
+            <AboutUs />
+            <CareOptions />
+            <EnhancingLives />
+            <SpecializedFocus />
+            <OurApproach />
+            <Testimonials />
+            <Partners />
+            <ContactUs />
+            <Footer />
+        </div>
     </>
 )
 
@@ -33,7 +35,7 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/explore" element={<MapSection />} />
+                <Route path="/explore" element={<><Navbar /><div className="pt-[80px]"><MapSection /></div></>} />
             </Routes>
         </Router>
     )

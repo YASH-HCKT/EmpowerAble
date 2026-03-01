@@ -1,6 +1,5 @@
-/* map-container as the root of the explore page */
 .map-page {
-    height: 100vh;
+    height: calc(100vh - 80px);
     width: 100vw;
     display: flex;
     flex-direction: column;

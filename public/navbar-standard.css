@@ -1,9 +1,24 @@
+:root {
+    --color-lime: #E8FAC2;
+    --color-lime-dark: #D4E8A0;
+    --color-amber: #0a3622;
+    /* Matches the text/logo color in other pages */
+    --color-green-dark: #0a3622;
+    --color-amber-light: #d4af37;
+    --font-heading: 'Public Sans', sans-serif;
+    --font-body: 'Public Sans', sans-serif;
+    --transition: all 0.3s ease;
+}
+
 .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     background-color: var(--color-lime);
     padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .navbar__container {
