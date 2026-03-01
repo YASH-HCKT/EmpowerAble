@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>EmpowerAble | Your Intelligent Care Companion</title>
-<!-- Tailwind CSS v3 with plugins -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>EmpowerAble | Your Intelligent Care Companion</title>
+  <!-- Tailwind CSS v3 with plugins -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
     tailwind.config = {
       theme: {
         extend: {
@@ -24,25 +26,42 @@
       }
     }
   </script>
-<!-- Custom Typography & Animations -->
-<style data-purpose="typography">
+  <!-- Custom Typography & Animations -->
+  <style data-purpose="typography">
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: #F9F8F6;
       color: #2D2D2D;
     }
   </style>
-<style data-purpose="animations">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/navbar-standard.css">
+  <style data-purpose="animations">
     @keyframes float {
-      0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-      50% { transform: translate(10px, -20px) scale(1.1); opacity: 0.8; }
-      100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+      }
+
+      50% {
+        transform: translate(10px, -20px) scale(1.1);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+      }
     }
+
     .ai-orb {
       filter: blur(60px);
       animation: float 8s ease-in-out infinite;
     }
+
     .glass-effect {
       background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(12px);
@@ -51,236 +70,308 @@
     }
   </style>
 </head>
+
 <body class="antialiased overflow-x-hidden">
-<!-- BEGIN: MainHeader -->
-<header class="fixed top-0 w-full z-50 glass-effect border-b border-brand-accent/20" data-purpose="navigation">
-<nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-<div class="flex items-center space-x-2">
-<div class="w-8 h-8 bg-brand-accent rounded-full flex items-center justify-center">
-<div class="w-4 h-4 bg-brand-charcoal rounded-full"></div>
-</div>
-<span class="text-xl font-bold tracking-tight">EmpowerAble</span>
-</div>
-<div class="hidden md:flex space-x-8 font-medium">
-<a class="hover:text-black transition" href="#">Features</a>
-<a class="hover:text-black transition" href="#">Privacy</a>
-<a class="hover:text-black transition" href="#">Support</a>
-</div>
-<button class="bg-brand-charcoal text-white px-6 py-2.5 rounded-full font-medium hover:bg-black transition shadow-sm">
-        Sign In
-      </button>
-</nav>
-</header>
-<!-- END: MainHeader -->
-<main class="pt-20">
-<!-- BEGIN: HeroSection -->
-<section class="relative pt-24 pb-16 px-6 overflow-hidden" data-purpose="hero">
-<!-- Animated Background Orb -->
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-brand-accent rounded-full ai-orb -z-10"></div>
-<div class="max-w-4xl mx-auto text-center">
-<span class="inline-block px-4 py-1.5 rounded-full bg-brand-accent/30 text-xs font-bold uppercase tracking-widest mb-6">AI Accessibility Companion</span>
-<h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">Your Intelligent <br/><span class="text-brand-charcoal/80">Care Companion</span></h1>
-<p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Experience real-time guidance, accessibility auditing, and emotional support tailored to your unique journey. Designed for safety, privacy, and true understanding.
+  <!-- BEGIN: MainHeader -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__container">
+      <a href="/" class="navbar__logo">
+        <span class="navbar__logo-empower">Empower</span>
+        <span class="navbar__logo-able">Able</span>
+      </a>
+      <ul class="navbar__links">
+        <li><a href="/" class="navbar__link">Home</a></li>
+        <li><a href="/map.html" class="navbar__link">Explore Map</a></li>
+        <li><a href="/community.html" class="navbar__link">Community</a></li>
+        <li><a href="/profile.html" class="navbar__link">Profile</a></li>
+        <li><a href="/ai-support.html" class="navbar__link">AI Support</a></li>
+        <li><a href="/pricing.html" class="navbar__link">Pricing</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- END: MainHeader -->
+  <main class="pt-20">
+    <!-- BEGIN: HeroSection -->
+    <section class="relative pt-24 pb-16 px-6 overflow-hidden" data-purpose="hero">
+      <!-- Animated Background Orb -->
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-brand-accent rounded-full ai-orb -z-10">
+      </div>
+      <div class="max-w-4xl mx-auto text-center">
+        <span
+          class="inline-block px-4 py-1.5 rounded-full bg-brand-accent/30 text-xs font-bold uppercase tracking-widest mb-6">AI
+          Accessibility Companion</span>
+        <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">Your Intelligent <br /><span
+            class="text-brand-charcoal/80">Care Companion</span></h1>
+        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+          Experience real-time guidance, accessibility auditing, and emotional support tailored to your unique journey.
+          Designed for safety, privacy, and true understanding.
         </p>
-<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-<button class="w-full sm:w-auto px-8 py-4 bg-brand-accent text-brand-charcoal font-bold rounded-2xl shadow-xl shadow-brand-accent/20 hover:scale-105 transition-transform">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button
+            class="w-full sm:w-auto px-8 py-4 bg-brand-accent text-brand-charcoal font-bold rounded-2xl shadow-xl shadow-brand-accent/20 hover:scale-105 transition-transform">
             Start Conversation
           </button>
-<button class="w-full sm:w-auto px-8 py-4 bg-white border border-gray-200 text-brand-charcoal font-bold rounded-2xl hover:bg-gray-50 transition-colors">
+          <button
+            class="w-full sm:w-auto px-8 py-4 bg-white border border-gray-200 text-brand-charcoal font-bold rounded-2xl hover:bg-gray-50 transition-colors">
             How It Works
           </button>
-</div>
-</div>
-</section>
-<!-- END: HeroSection -->
-<!-- BEGIN: ChatInterfaceSection -->
-<section class="max-w-7xl mx-auto px-6 py-12" data-purpose="chat-application">
-<div class="bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden flex h-[700px]">
-<!-- Sidebar -->
-<aside class="w-64 border-r border-gray-100 bg-gray-50/50 hidden lg:flex flex-col p-6">
-<button class="w-full py-3 px-4 bg-brand-accent/50 border border-brand-accent font-semibold rounded-xl flex items-center justify-center gap-2 mb-8 hover:bg-brand-accent transition">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </div>
+      </div>
+    </section>
+    <!-- END: HeroSection -->
+    <!-- BEGIN: ChatInterfaceSection -->
+    <section class="max-w-7xl mx-auto px-6 py-12" data-purpose="chat-application">
+      <div class="bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden flex h-[700px]">
+        <!-- Sidebar -->
+        <aside class="w-64 border-r border-gray-100 bg-gray-50/50 hidden lg:flex flex-col p-6">
+          <button
+            class="w-full py-3 px-4 bg-brand-accent/50 border border-brand-accent font-semibold rounded-xl flex items-center justify-center gap-2 mb-8 hover:bg-brand-accent transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
             New Chat
           </button>
-<div class="flex-1 space-y-4">
-<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Recent Chats</p>
-<div class="space-y-2">
-<div class="p-2 bg-white rounded-lg border border-gray-200 text-sm font-medium cursor-pointer truncate">Accessibility Audit: Home</div>
-<div class="p-2 text-gray-500 text-sm font-medium cursor-pointer truncate hover:text-black">Medication Schedule</div>
-<div class="p-2 text-gray-500 text-sm font-medium cursor-pointer truncate hover:text-black">Emotional Support Session</div>
-</div>
-</div>
-<div class="pt-6 border-t border-gray-100">
-<button class="flex items-center gap-3 text-sm text-gray-600 font-medium hover:text-black">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          <div class="flex-1 space-y-4">
+            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Recent Chats</p>
+            <div class="space-y-2">
+              <div class="p-2 bg-white rounded-lg border border-gray-200 text-sm font-medium cursor-pointer truncate">
+                Accessibility Audit: Home</div>
+              <div class="p-2 text-gray-500 text-sm font-medium cursor-pointer truncate hover:text-black">Medication
+                Schedule</div>
+              <div class="p-2 text-gray-500 text-sm font-medium cursor-pointer truncate hover:text-black">Emotional
+                Support Session</div>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-gray-100">
+            <button class="flex items-center gap-3 text-sm text-gray-600 font-medium hover:text-black">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"></path>
+              </svg>
               Accessibility Settings
             </button>
-</div>
-</aside>
-<!-- Main Chat Area -->
-<div class="flex-1 flex flex-col bg-white">
-<div class="flex-1 overflow-y-auto p-6 space-y-6">
-<!-- AI Message -->
-<div class="flex items-start gap-4">
-<div class="w-8 h-8 rounded-full bg-brand-accent flex items-center justify-center shrink-0">
-<span class="text-[10px] font-bold">AI</span>
-</div>
-<div class="bg-brand-accent/10 border border-brand-accent/30 p-4 rounded-2xl rounded-tl-none max-w-[80%]">
-<p class="text-sm leading-relaxed">Hello! I'm your EmpowerAble companion. How can I help you today? We can discuss home accessibility, set up care reminders, or just talk if you need emotional support.</p>
-</div>
-</div>
-<!-- User Message -->
-<div class="flex items-start justify-end gap-4">
-<div class="bg-gray-100 p-4 rounded-2xl rounded-tr-none max-w-[80%]">
-<p class="text-sm leading-relaxed">I'm feeling a bit overwhelmed with my new mobility equipment. Can we talk about it?</p>
-</div>
-<div class="w-8 h-8 rounded-full bg-brand-charcoal flex items-center justify-center shrink-0">
-<span class="text-[10px] font-bold text-white">ME</span>
-</div>
-</div>
-<!-- AI Message -->
-<div class="flex items-start gap-4">
-<div class="w-8 h-8 rounded-full bg-brand-accent flex items-center justify-center shrink-0">
-<span class="text-[10px] font-bold">AI</span>
-</div>
-<div class="bg-brand-accent/10 border border-brand-accent/30 p-4 rounded-2xl rounded-tl-none max-w-[80%]">
-<p class="text-sm leading-relaxed">I hear you, and it's completely normal to feel that way. Adjusting to new tools takes time and energy. Would you like to break down the specific challenges into small steps, or would you prefer to just express how you're feeling first? I'm here for both.</p>
-</div>
-</div>
-</div>
-<!-- Input Bar -->
-<div class="p-6 border-t border-gray-100">
-<div class="relative group">
-<input class="w-full pl-6 pr-32 py-4 bg-gray-50 border-gray-200 rounded-2xl focus:ring-brand-accent focus:border-brand-accent transition-all" placeholder="Ask me anything about accessibility, care, or support..." type="text"/>
-<div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center space-x-2">
-<button class="p-2 text-gray-400 hover:text-brand-charcoal transition" title="Voice Input">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-<button class="p-2 text-gray-400 hover:text-brand-charcoal transition" title="Accessibility Toggle">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-<button class="bg-brand-accent p-2 rounded-xl hover:shadow-lg hover:shadow-brand-accent/30 transition">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-</div>
-</div>
-<p class="text-[10px] text-center text-gray-400 mt-3 font-medium">EmpowerAble AI can provide guidance but is not a substitute for professional medical advice.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- END: ChatInterfaceSection -->
-<!-- BEGIN: FeaturesSection -->
-<section class="py-24 px-6 bg-white" data-purpose="features">
-<div class="max-w-7xl mx-auto">
-<div class="text-center mb-16">
-<h2 class="text-3xl md:text-4xl font-bold mb-4">Intelligent Support for Every Need</h2>
-<p class="text-gray-500 max-w-xl mx-auto">Advanced technology designed with a human touch to make life more accessible.</p>
-</div>
-<div class="grid md:grid-cols-3 gap-8">
-<!-- Card 1 -->
-<div class="p-8 rounded-2xl bg-brand-offwhite border border-gray-100 hover:shadow-xl transition-shadow group">
-<div class="w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</div>
-<h3 class="text-xl font-bold mb-3">Smart Accessibility Guidance</h3>
-<p class="text-gray-600 leading-relaxed">Real-time audits of your living and digital spaces with immediate recommendations for improvement.</p>
-</div>
-<!-- Card 2 -->
-<div class="p-8 rounded-2xl bg-brand-offwhite border border-gray-100 hover:shadow-xl transition-shadow group">
-<div class="w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</div>
-<h3 class="text-xl font-bold mb-3">Emotional Support Mode</h3>
-<p class="text-gray-600 leading-relaxed">An AI trained in empathetic communication to help manage the emotional complexities of care.</p>
-</div>
-<!-- Card 3 -->
-<div class="p-8 rounded-2xl bg-brand-offwhite border border-gray-100 hover:shadow-xl transition-shadow group">
-<div class="w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</div>
-<h3 class="text-xl font-bold mb-3">Emergency Assist</h3>
-<p class="text-gray-600 leading-relaxed">Quick-access protocols and immediate connection to emergency contacts when every second counts.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- END: FeaturesSection -->
-<!-- BEGIN: HowItWorksSection -->
-<section class="py-24 px-6 bg-brand-accent/10" data-purpose="how-it-works">
-<div class="max-w-5xl mx-auto">
-<h2 class="text-3xl font-bold text-center mb-16">Three Steps to Better Care</h2>
-<div class="grid md:grid-cols-3 gap-12 relative">
-<!-- Connecting Line (Desktop) -->
-<div class="hidden md:block absolute top-10 left-0 w-full h-px bg-brand-accent/40 -z-10"></div>
-<div class="text-center">
-<div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-brand-accent">
-<span class="text-2xl font-bold">1</span>
-</div>
-<h4 class="font-bold mb-2">Connect</h4>
-<p class="text-sm text-gray-500">Sign up and securely link your preferences and needs.</p>
-</div>
-<div class="text-center">
-<div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-brand-accent">
-<span class="text-2xl font-bold">2</span>
-</div>
-<h4 class="font-bold mb-2">Interact</h4>
-<p class="text-sm text-gray-500">Chat with the AI about any aspect of your accessibility journey.</p>
-</div>
-<div class="text-center">
-<div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-brand-accent">
-<span class="text-2xl font-bold">3</span>
-</div>
-<h4 class="font-bold mb-2">Thrive</h4>
-<p class="text-sm text-gray-500">Receive actionable insights that improve your daily independence.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- END: HowItWorksSection -->
-<!-- BEGIN: TrustPrivacySection -->
-<section class="py-24 px-6 text-center" data-purpose="trust-privacy">
-<div class="max-w-2xl mx-auto">
-<div class="inline-block p-4 bg-brand-accent rounded-2xl mb-8">
-<svg class="w-10 h-10 text-brand-charcoal" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</div>
-<h2 class="text-3xl font-bold mb-6">Private. Secure. Always Confidential.</h2>
-<p class="text-gray-600 leading-relaxed text-lg">
-          Your health and accessibility data are yours alone. We use end-to-end encryption and HIPAA-compliant servers to ensure your conversations remain completely private.
+          </div>
+        </aside>
+        <!-- Main Chat Area -->
+        <div class="flex-1 flex flex-col bg-white">
+          <div class="flex-1 overflow-y-auto p-6 space-y-6">
+            <!-- AI Message -->
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-brand-accent flex items-center justify-center shrink-0">
+                <span class="text-[10px] font-bold">AI</span>
+              </div>
+              <div class="bg-brand-accent/10 border border-brand-accent/30 p-4 rounded-2xl rounded-tl-none max-w-[80%]">
+                <p class="text-sm leading-relaxed">Hello! I'm your EmpowerAble companion. How can I help you today? We
+                  can discuss home accessibility, set up care reminders, or just talk if you need emotional support.</p>
+              </div>
+            </div>
+            <!-- User Message -->
+            <div class="flex items-start justify-end gap-4">
+              <div class="bg-gray-100 p-4 rounded-2xl rounded-tr-none max-w-[80%]">
+                <p class="text-sm leading-relaxed">I'm feeling a bit overwhelmed with my new mobility equipment. Can we
+                  talk about it?</p>
+              </div>
+              <div class="w-8 h-8 rounded-full bg-brand-charcoal flex items-center justify-center shrink-0">
+                <span class="text-[10px] font-bold text-white">ME</span>
+              </div>
+            </div>
+            <!-- AI Message -->
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-brand-accent flex items-center justify-center shrink-0">
+                <span class="text-[10px] font-bold">AI</span>
+              </div>
+              <div class="bg-brand-accent/10 border border-brand-accent/30 p-4 rounded-2xl rounded-tl-none max-w-[80%]">
+                <p class="text-sm leading-relaxed">I hear you, and it's completely normal to feel that way. Adjusting to
+                  new tools takes time and energy. Would you like to break down the specific challenges into small
+                  steps, or would you prefer to just express how you're feeling first? I'm here for both.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Input Bar -->
+          <div class="p-6 border-t border-gray-100">
+            <div class="relative group">
+              <input
+                class="w-full pl-6 pr-32 py-4 bg-gray-50 border-gray-200 rounded-2xl focus:ring-brand-accent focus:border-brand-accent transition-all"
+                placeholder="Ask me anything about accessibility, care, or support..." type="text" />
+              <div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center space-x-2">
+                <button class="p-2 text-gray-400 hover:text-brand-charcoal transition" title="Voice Input">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                    <path
+                      d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
+                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                  </svg>
+                </button>
+                <button class="p-2 text-gray-400 hover:text-brand-charcoal transition" title="Accessibility Toggle">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                    <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2"></path>
+                    <path
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                  </svg>
+                </button>
+                <button class="bg-brand-accent p-2 rounded-xl hover:shadow-lg hover:shadow-brand-accent/30 transition">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                    <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    </path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="text-[10px] text-center text-gray-400 mt-3 font-medium">EmpowerAble AI can provide guidance but is
+              not a substitute for professional medical advice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: ChatInterfaceSection -->
+    <!-- BEGIN: FeaturesSection -->
+    <section class="py-24 px-6 bg-white" data-purpose="features">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Intelligent Support for Every Need</h2>
+          <p class="text-gray-500 max-w-xl mx-auto">Advanced technology designed with a human touch to make life more
+            accessible.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="p-8 rounded-2xl bg-brand-offwhite border border-gray-100 hover:shadow-xl transition-shadow group">
+            <div
+              class="w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Smart Accessibility Guidance</h3>
+            <p class="text-gray-600 leading-relaxed">Real-time audits of your living and digital spaces with immediate
+              recommendations for improvement.</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="p-8 rounded-2xl bg-brand-offwhite border border-gray-100 hover:shadow-xl transition-shadow group">
+            <div
+              class="w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Emotional Support Mode</h3>
+            <p class="text-gray-600 leading-relaxed">An AI trained in empathetic communication to help manage the
+              emotional complexities of care.</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="p-8 rounded-2xl bg-brand-offwhite border border-gray-100 hover:shadow-xl transition-shadow group">
+            <div
+              class="w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Emergency Assist</h3>
+            <p class="text-gray-600 leading-relaxed">Quick-access protocols and immediate connection to emergency
+              contacts when every second counts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: FeaturesSection -->
+    <!-- BEGIN: HowItWorksSection -->
+    <section class="py-24 px-6 bg-brand-accent/10" data-purpose="how-it-works">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16">Three Steps to Better Care</h2>
+        <div class="grid md:grid-cols-3 gap-12 relative">
+          <!-- Connecting Line (Desktop) -->
+          <div class="hidden md:block absolute top-10 left-0 w-full h-px bg-brand-accent/40 -z-10"></div>
+          <div class="text-center">
+            <div
+              class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-brand-accent">
+              <span class="text-2xl font-bold">1</span>
+            </div>
+            <h4 class="font-bold mb-2">Connect</h4>
+            <p class="text-sm text-gray-500">Sign up and securely link your preferences and needs.</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-brand-accent">
+              <span class="text-2xl font-bold">2</span>
+            </div>
+            <h4 class="font-bold mb-2">Interact</h4>
+            <p class="text-sm text-gray-500">Chat with the AI about any aspect of your accessibility journey.</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-brand-accent">
+              <span class="text-2xl font-bold">3</span>
+            </div>
+            <h4 class="font-bold mb-2">Thrive</h4>
+            <p class="text-sm text-gray-500">Receive actionable insights that improve your daily independence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: HowItWorksSection -->
+    <!-- BEGIN: TrustPrivacySection -->
+    <section class="py-24 px-6 text-center" data-purpose="trust-privacy">
+      <div class="max-w-2xl mx-auto">
+        <div class="inline-block p-4 bg-brand-accent rounded-2xl mb-8">
+          <svg class="w-10 h-10 text-brand-charcoal" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+        </div>
+        <h2 class="text-3xl font-bold mb-6">Private. Secure. Always Confidential.</h2>
+        <p class="text-gray-600 leading-relaxed text-lg">
+          Your health and accessibility data are yours alone. We use end-to-end encryption and HIPAA-compliant servers
+          to ensure your conversations remain completely private.
         </p>
-</div>
-</section>
-<!-- END: TrustPrivacySection -->
-<!-- BEGIN: FinalCTA -->
-<section class="py-32 px-6 relative overflow-hidden" data-purpose="cta">
-<div class="absolute inset-0 bg-brand-accent/5 -z-20"></div>
-<div class="absolute -bottom-48 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-accent rounded-full blur-[120px] opacity-30 -z-10"></div>
-<div class="max-w-4xl mx-auto text-center">
-<h2 class="text-4xl md:text-5xl font-bold mb-10">Experience Support That <br/>Understands You</h2>
-<button class="px-10 py-5 bg-brand-charcoal text-white text-lg font-bold rounded-2xl hover:bg-black transition-all hover:scale-105 hover:shadow-2xl">
+      </div>
+    </section>
+    <!-- END: TrustPrivacySection -->
+    <!-- BEGIN: FinalCTA -->
+    <section class="py-32 px-6 relative overflow-hidden" data-purpose="cta">
+      <div class="absolute inset-0 bg-brand-accent/5 -z-20"></div>
+      <div
+        class="absolute -bottom-48 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-accent rounded-full blur-[120px] opacity-30 -z-10">
+      </div>
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-10">Experience Support That <br />Understands You</h2>
+        <button
+          class="px-10 py-5 bg-brand-charcoal text-white text-lg font-bold rounded-2xl hover:bg-black transition-all hover:scale-105 hover:shadow-2xl">
           Start AI Support Now
         </button>
-</div>
-</section>
-<!-- END: FinalCTA -->
-</main>
-<!-- BEGIN: Footer -->
-<footer class="bg-brand-charcoal text-white/60 py-12 px-6 border-t border-white/10" data-purpose="footer">
-<div class="max-w-7xl mx-auto flex flex-col md:row items-center justify-between gap-8">
-<div class="flex items-center space-x-2 grayscale brightness-200 opacity-50">
-<div class="w-6 h-6 bg-brand-accent rounded-full flex items-center justify-center">
-<div class="w-3 h-3 bg-brand-charcoal rounded-full"></div>
-</div>
-<span class="text-lg font-bold">EmpowerAble</span>
-</div>
-<div class="flex space-x-8 text-sm">
-<a class="hover:text-white" href="#">Privacy Policy</a>
-<a class="hover:text-white" href="#">Terms of Service</a>
-<a class="hover:text-white" href="#">Contact Us</a>
-</div>
-<p class="text-xs">© 2023 EmpowerAble Platform. Built for accessibility.</p>
-</div>
-</footer>
-<!-- END: Footer -->
-</body></html>
+      </div>
+    </section>
+    <!-- END: FinalCTA -->
+  </main>
+  <!-- BEGIN: Footer -->
+  <footer class="bg-brand-charcoal text-white/60 py-12 px-6 border-t border-white/10" data-purpose="footer">
+    <div class="max-w-7xl mx-auto flex flex-col md:row items-center justify-between gap-8">
+      <div class="flex items-center space-x-2 grayscale brightness-200 opacity-50">
+        <div class="w-6 h-6 bg-brand-accent rounded-full flex items-center justify-center">
+          <div class="w-3 h-3 bg-brand-charcoal rounded-full"></div>
+        </div>
+        <span class="text-lg font-bold">EmpowerAble</span>
+      </div>
+      <div class="flex space-x-8 text-sm">
+        <a class="hover:text-white" href="#">Privacy Policy</a>
+        <a class="hover:text-white" href="#">Terms of Service</a>
+        <a class="hover:text-white" href="#">Contact Us</a>
+      </div>
+      <p class="text-xs">© 2023 EmpowerAble Platform. Built for accessibility.</p>
+    </div>
+  </footer>
+  <!-- END: Footer -->
+  <script src="/navbar-standard.js"></script>
+</body>
+
+</html>

@@ -12,9 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+    <link rel="stylesheet" href="/navbar-standard.css">
     <script id="tailwind-config">tailwind.config = {
             darkMode: "class",
             theme: {
@@ -74,90 +72,7 @@
             src: url("https://static.parastorage.com/fonts/v2/b7cac872-10e6-48a7-aacc-39212836977c/v1/aether.latin.woff2") format("woff2");
         }
 
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: var(--color-lime);
-            padding: 20px 0;
-        }
 
-        .navbar__container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .navbar__logo {
-            font-family: var(--font-heading);
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-decoration: none;
-            display: flex;
-            gap: 0;
-        }
-
-        .navbar__logo-empower {
-            color: var(--color-amber);
-        }
-
-        .navbar__logo-able {
-            color: var(--color-amber);
-            font-weight: 900;
-        }
-
-        .navbar__links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar__link {
-            font-family: var(--font-body);
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--color-green-dark);
-            position: relative;
-            padding: 4px 0;
-            text-decoration: none;
-        }
-
-        .navbar__link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--color-green-dark);
-            transition: var(--transition);
-        }
-
-        .navbar__link:hover::after,
-        .navbar__link--active::after {
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .navbar__container {
-                padding: 0 24px;
-            }
-
-            .navbar__links {
-                gap: 20px;
-            }
-
-            .navbar__link {
-                font-size: 0.9rem;
-            }
-        }
 
         body {
             font-family: 'Public Sans', sans-serif;
@@ -184,9 +99,9 @@
             <ul class="navbar__links">
                 <li><a href="/" class="navbar__link">Home</a></li>
                 <li><a href="/map.html" class="navbar__link">Explore Map</a></li>
-                <li><a href="/community.html" class="navbar__link navbar__link--active">Community</a></li>
+                <li><a href="/community.html" class="navbar__link">Community</a></li>
                 <li><a href="/profile.html" class="navbar__link">Profile</a></li>
-                <li><a href="/#about" class="navbar__link">About</a></li>
+                <li><a href="/ai-support.html" class="navbar__link">AI Support</a></li>
                 <li><a href="/pricing.html" class="navbar__link">Pricing</a></li>
             </ul>
         </div>
@@ -565,6 +480,7 @@
             </div>
         </div>
     </footer>
+    <script src="/navbar-standard.js"></script>
 </body>
 
 </html>
