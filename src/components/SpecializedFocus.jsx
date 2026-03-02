@@ -25,7 +25,7 @@ function SpecializedFocus() {
                 </div>
                 <div className="focus__grid">
                     {focuses.map((item, index) => (
-                        <div className="focus__card" key={index}>
+                        <div className="focus__card hover-lift" key={index}>
                             <h3 className="focus__card-title">{item.title}</h3>
                             <p className="focus__card-desc">{item.desc}</p>
                         </div>

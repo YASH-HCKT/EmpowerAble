@@ -13,10 +13,25 @@ function ContactUs() {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        alert('Thank you for reaching out! We will get back to you soon.')
-        setFormData({ firstName: '', lastName: '', email: '', message: '' })
+        try {
+            const response = await fetch('http://localhost:3001/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            const data = await response.json()
+            if (data.success) {
+                alert('Thank you, ' + formData.firstName + '! Your message has been sent directly to yashcrj06@gmail.com.')
+                setFormData({ firstName: '', lastName: '', email: '', message: '' })
+            } else {
+                alert('Oops! Something went wrong. Please try again later.')
+            }
+        } catch (error) {
+            console.error('Submission error:', error)
+            alert('Failed to send message. Please check your connection.')
+        }
     }
 
     return (

@@ -5,6 +5,77 @@
     overflow: hidden;
 }
 
+/* ===== BLOBS & PARTICLES ===== */
+.hero__blobs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero__blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+}
+
+.hero__blob--1 {
+    width: 50vw;
+    height: 50vw;
+    background: linear-gradient(135deg, rgba(26, 107, 69, 0.4), rgba(212, 232, 160, 0.8));
+    top: -20%;
+    right: -10%;
+    animation: blobFloat 10s ease-in-out infinite alternate;
+}
+
+.hero__blob--2 {
+    width: 40vw;
+    height: 40vw;
+    background: linear-gradient(135deg, rgba(255, 191, 0, 0.3), rgba(17, 75, 49, 0.2));
+    bottom: 10%;
+    left: -10%;
+    animation: blobFloat 14s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes blobFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(30px);
+    }
+}
+
+.hero__particles {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--color-green-medium) 1.5px, transparent 1.5px);
+    background-size: 60px 60px;
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
+    animation: particleDrift 40s linear infinite;
+}
+
+@keyframes particleDrift {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -80px -80px;
+    }
+}
+
+/* ===== END BLOBS & PARTICLES ===== */
+
 .hero__container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -18,6 +89,35 @@
     color: var(--color-green-dark);
     line-height: 1.05;
     margin-bottom: 40px;
+    position: relative;
+}
+
+.hero__title::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 60%);
+    z-index: -1;
+    animation: glowPulse 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
 }
 
 .hero__content {
@@ -56,6 +156,9 @@
     height: 100%;
     object-fit: cover;
     object-position: center 25%;
+    transform: scale(1.1);
+    transform-origin: top center;
+    will-change: transform;
 }
 
 @media (max-width: 768px) {

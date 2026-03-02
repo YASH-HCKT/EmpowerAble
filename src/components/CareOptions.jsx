@@ -34,7 +34,7 @@ function CareOptions() {
                 <a href="#about" className="btn-secondary care__btn">About Us</a>
                 <div className="care__grid">
                     {services.map((service, index) => (
-                        <div className="care__card" key={index}>
+                        <div className="care__card hover-lift hover-glow" key={index}>
                             <span className="care__card-icon">{service.icon}</span>
                             <h3 className="care__card-title">{service.title}</h3>
                             <p className="care__card-desc">{service.desc}</p>

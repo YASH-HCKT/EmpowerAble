@@ -1,6 +1,7 @@
 .contact {
     background-color: var(--color-green-dark);
     padding: 100px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .contact__container {
@@ -84,7 +85,20 @@
 .contact__submit {
     width: 100%;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
+    background-color: var(--color-lime);
+    color: var(--color-green-dark);
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 16px;
+    border: none;
+    z-index: 10;
+    position: relative;
+}
+
+.contact__submit:hover {
+    background-color: var(--color-white);
+    transform: scale(1.02);
 }
 
 @media (max-width: 768px) {

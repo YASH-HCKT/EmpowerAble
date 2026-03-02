@@ -93,8 +93,7 @@
     <nav class="navbar" id="navbar">
         <div class="navbar__container">
             <a href="/" class="navbar__logo">
-                <span class="navbar__logo-empower">Empower</span>
-                <span class="navbar__logo-able">Able</span>
+                <span class="navbar__logo-empower">Empower</span><span class="navbar__logo-able">Able</span>
             </a>
             <ul class="navbar__links">
                 <li><a href="/" class="navbar__link">Home</a></li>
@@ -138,22 +137,21 @@
             </div>
         </section>
         <!-- Category Filters -->
-        <div class="flex items-center gap-3 overflow-x-auto pb-6 scrollbar-hide">
-            <button class="px-5 py-2 rounded-full bg-primary text-white font-medium whitespace-nowrap">All
-                Communities</button>
+        <div class="flex items-center gap-3 overflow-x-auto pb-6 scrollbar-hide" id="category-filters">
+            <button class="filter-btn px-5 py-2 rounded-full bg-primary text-white font-medium whitespace-nowrap active"
+                data-category="all">All Communities</button>
             <button
-                class="px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap">Encouraging</button>
+                class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap"
+                data-category="encouraging">Encouraging</button>
             <button
-                class="px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap">Fitness
-                &amp; Mobility</button>
+                class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap"
+                data-category="fitness">Fitness &amp; Mobility</button>
             <button
-                class="px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap">Career
-                Growth</button>
+                class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap"
+                data-category="career">Career Growth</button>
             <button
-                class="px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap">Emotional
-                Well-being</button>
-            <button
-                class="px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap">Technology</button>
+                class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap"
+                data-category="emotional">Emotional Well-being</button>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <!-- Main Content Area -->
@@ -164,79 +162,8 @@
                         <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Featured Spaces</h3>
                         <a class="text-primary font-semibold text-sm hover:underline" href="#">View all</a>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Card 1 -->
-                        <div
-                            class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10 shadow-sm hover:shadow-md transition-shadow group">
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="p-3 bg-primary/10 rounded-xl text-primary">
-                                    <span class="material-symbols-outlined text-3xl">sentiment_satisfied</span>
-                                </div>
-                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">1.2k
-                                    Members</span>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Daily
-                                Motivation</h4>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">A space to share morning
-                                affirmations, daily wins, and positive energy to start your day right.</p>
-                            <button
-                                class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-background-light transition-all">Join
-                                Space</button>
-                        </div>
-                        <!-- Card 2 -->
-                        <div
-                            class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10 shadow-sm hover:shadow-md transition-shadow group">
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="p-3 bg-blue-500/10 rounded-xl text-blue-500">
-                                    <span class="material-symbols-outlined text-3xl">fitness_center</span>
-                                </div>
-                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">850
-                                    Members</span>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Adaptive
-                                Fitness</h4>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Personalized routines,
-                                accessibility tips for gyms, and home-based mobility exercises for all levels.</p>
-                            <button
-                                class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-background-light transition-all">Join
-                                Space</button>
-                        </div>
-                        <!-- Card 3 -->
-                        <div
-                            class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10 shadow-sm hover:shadow-md transition-shadow group">
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="p-3 bg-purple-500/10 rounded-xl text-purple-500">
-                                    <span class="material-symbols-outlined text-3xl">psychology</span>
-                                </div>
-                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">2.4k
-                                    Members</span>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Support Circle
-                            </h4>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Safe, moderated discussions about
-                                emotional resilience, mental health, and navigating life's challenges.</p>
-                            <button
-                                class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-background-light transition-all">Join
-                                Space</button>
-                        </div>
-                        <!-- Card 4 -->
-                        <div
-                            class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10 shadow-sm hover:shadow-md transition-shadow group">
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="p-3 bg-green-500/10 rounded-xl text-green-500">
-                                    <span class="material-symbols-outlined text-3xl">work_history</span>
-                                </div>
-                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">1.1k
-                                    Members</span>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Career Growth
-                                Hub</h4>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Mentorship, job listings from
-                                inclusive employers, and professional skill-building resources.</p>
-                            <button
-                                class="w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-background-light transition-all">Join
-                                Space</button>
-                        </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="community-grid">
+                        <!-- Content will be injected by JS -->
                     </div>
                 </section>
                 <!-- Trending Discussions -->
@@ -480,7 +407,138 @@
             </div>
         </div>
     </footer>
+    <div id="create-modal" class="fixed inset-0 bg-black/50 hidden z-[3000] flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl w-full max-w-md p-8 shadow-2xl">
+            <h3 class="text-2xl font-bold mb-6">Create New Community</h3>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Community Name</label>
+                    <input type="text" id="new-comm-name" class="w-full rounded-xl border-slate-200 dark:bg-slate-800"
+                        placeholder="e.g. Hope & Progress">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Objective</label>
+                    <textarea id="new-comm-obj" class="w-full rounded-xl border-slate-200 dark:bg-slate-800"
+                        placeholder="What is this space for?"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Symbol (Material Icon
+                        Name)</label>
+                    <input type="text" id="new-comm-icon" class="w-full rounded-xl border-slate-200 dark:bg-slate-800"
+                        placeholder="e.g. heartbeat, star, groups">
+                    <p class="text-[10px] text-slate-400 mt-1">Visit Material Symbols for icon names.</p>
+                </div>
+                <div class="flex gap-4 pt-4">
+                    <button onclick="document.getElementById('create-modal').classList.add('hidden')"
+                        class="flex-1 py-3 rounded-xl border font-bold">Cancel</button>
+                    <button onclick="createNewCommunity()"
+                        class="flex-1 py-3 bg-primary text-white rounded-xl font-bold">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="/navbar-standard.js"></script>
+    <script>
+        const communities = [
+            { id: 1, name: "Daily Motivation", category: "encouraging", members: "1.2k", icon: "sentiment_satisfied", color: "text-primary", desc: "A space to share morning affirmations, daily wins, and positive energy to start your day right." },
+            { id: 2, name: "Adaptive Fitness", category: "fitness", members: "850", icon: "fitness_center", color: "text-blue-500", desc: "Personalized routines, accessibility tips for gyms, and home-based mobility exercises for all levels." },
+            { id: 3, name: "Support Circle", category: "emotional", members: "2.4k", icon: "psychology", color: "text-purple-500", desc: "Safe, moderated discussions about emotional resilience, mental health, and navigating life's challenges." },
+            { id: 4, name: "Career Growth Hub", category: "career", members: "1.1k", icon: "work_history", color: "text-green-500", desc: "Mentorship, job listings from inclusive employers, and professional skill-building resources." },
+            { id: 5, name: "Step by Step", category: "encouraging", members: "500", icon: "trending_up", color: "text-amber-500", desc: "For those recovering from injury or adjusting to new mobility aids. Every small step counts." },
+            { id: 6, name: "Wheelchair Yoga", category: "fitness", members: "300", icon: "self_improvement", color: "text-teal-500", desc: "Seated yoga practices and breathwork specifically designed for limited mobility." }
+        ];
+
+        let joinedSpaces = new Set();
+
+        function renderCommunities(filter = 'all') {
+            const grid = document.getElementById('community-grid');
+            grid.innerHTML = '';
+
+            communities.forEach(c => {
+                if (filter !== 'all' && c.category !== filter) return;
+
+                const card = document.createElement('div');
+                card.className = "bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10 shadow-sm hover:shadow-md transition-shadow group";
+
+                const isJoined = joinedSpaces.has(c.id);
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-slate-100 dark:bg-slate-700 rounded-xl ${c.color}">
+                            <span class="material-symbols-outlined text-3xl">${c.icon}</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">${c.members} Members</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">${c.name}</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">${c.desc}</p>
+                    <button onclick="toggleJoin(this, ${c.id})" class="w-full py-2.5 rounded-xl border-2 border-primary transition-all font-bold ${isJoined ? 'bg-green-500 border-green-500 text-white' : 'text-primary hover:bg-primary hover:text-white'}">
+                        ${isJoined ? 'Already Joined' : 'Join Space'}
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function toggleJoin(btn, id) {
+            if (joinedSpaces.has(id)) {
+                joinedSpaces.delete(id);
+                btn.innerText = 'Join Space';
+                btn.className = "w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all";
+            } else {
+                joinedSpaces.add(id);
+                btn.innerText = 'Already Joined';
+                btn.className = "w-full py-2.5 rounded-xl border-2 border-green-500 bg-green-500 text-white font-bold transition-all";
+            }
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('bg-primary', 'text-white'));
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.add('bg-card-beige', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300'));
+
+                btn.classList.add('bg-primary', 'text-white');
+                btn.classList.remove('bg-card-beige', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300');
+
+                renderCommunities(btn.dataset.category);
+            });
+        });
+
+        const createBtn = document.querySelector('button:has(.material-symbols-outlined:contains("add_circle"))');
+        // Fix for "Create Community" click
+        document.querySelector('button i:contains("add_circle")')?.parentElement.addEventListener('click', () => {
+            document.getElementById('create-modal').classList.remove('hidden');
+        });
+        // Alternatively, find the button by text
+        Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('Create Community')).onclick = () => {
+            document.getElementById('create-modal').classList.remove('hidden');
+        };
+
+        function createNewCommunity() {
+            const name = document.getElementById('new-comm-name').value;
+            const obj = document.getElementById('new-comm-obj').value;
+            const icon = document.getElementById('new-comm-icon').value || 'groups';
+
+            if (!name || !obj) return alert('Please fill in name and objective');
+
+            const newId = communities.length + 1;
+            communities.push({
+                id: newId,
+                name: name,
+                category: 'encouraging', // default for user created for now
+                members: '1 Member',
+                icon: icon,
+                color: 'text-primary',
+                desc: obj
+            });
+
+            document.getElementById('create-modal').classList.add('hidden');
+            renderCommunities();
+            alert('Community created successfully!');
+        }
+
+        renderCommunities();
+    </script>
 </body>
 
 </html>

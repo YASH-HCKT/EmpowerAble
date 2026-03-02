@@ -12,19 +12,25 @@ import ContactUs from './components/ContactUs'
 import Footer from './components/Footer'
 import MapSection from './components/MapSection'
 
+import ScrollReveal from './components/ScrollReveal'
+
 const LandingPage = () => (
     <>
         <Navbar />
+        {/* Ambient Background Elements */}
+        <div className="ambient-blob ambient-blob--1"></div>
+        <div className="ambient-blob ambient-blob--2"></div>
+
         <div className="pt-[80px]">
             <Hero />
-            <AboutUs />
-            <CareOptions />
-            <EnhancingLives />
-            <SpecializedFocus />
-            <OurApproach />
-            <Testimonials />
-            <Partners />
-            <ContactUs />
+            <ScrollReveal><AboutUs /></ScrollReveal>
+            <ScrollReveal><CareOptions /></ScrollReveal>
+            <ScrollReveal><EnhancingLives /></ScrollReveal>
+            <ScrollReveal><SpecializedFocus /></ScrollReveal>
+            <ScrollReveal><OurApproach /></ScrollReveal>
+            <ScrollReveal><Testimonials /></ScrollReveal>
+            <ScrollReveal><Partners /></ScrollReveal>
+            <ScrollReveal><ContactUs /></ScrollReveal>
             <Footer />
         </div>
     </>
