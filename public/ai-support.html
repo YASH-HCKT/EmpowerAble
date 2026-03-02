@@ -421,8 +421,7 @@
       chatMessages.scrollTop = chatMessages.scrollHeight;
 
       try {
-        // Log outgoing request for debugging
-        console.log('Sending request to AI Assistant...');
+        console.log('Sending request to AI Assistant (Mistral-7B-Instruct-v0.3)...');
 
         const response = await fetch('http://localhost:3001/api/chat', {
           method: 'POST',
@@ -430,10 +429,7 @@
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify({
-            prompt: text,
-            apiKey: API_KEY
-          })
+          body: JSON.stringify({ prompt: text })
         });
 
         if (!response.ok) {

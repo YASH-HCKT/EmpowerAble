@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import locationsHandler from './api/locations.js';
 import summaryHandler from './api/summary.js';
@@ -9,7 +10,7 @@ import contactHandler from './api/contact.js';
 import cors from 'cors';
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
@@ -18,7 +19,8 @@ app.use(express.json());
 const mockHandler = (handler) => (req, res) => {
     const mockRes = {
         status: (code) => ({
-            json: (data) => res.status(code).json(data)
+            json: (data) => res.status(code).json(data),
+            end: () => res.status(code).end()
         })
     };
     handler(req, mockRes);
