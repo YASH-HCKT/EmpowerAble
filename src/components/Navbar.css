@@ -5,7 +5,7 @@
     width: 100%;
     z-index: 1000;
     background-color: var(--color-lime);
-    padding: 20px 0;
+    padding: 12px 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -21,7 +21,7 @@
 
 .navbar__logo {
     font-family: 'aether', sans-serif;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 400;
     letter-spacing: -0.5px;
     text-decoration: none;
@@ -47,11 +47,11 @@
 
 .navbar__link {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--color-green-dark);
     position: relative;
-    padding: 4px 0;
+    padding: 6px 0;
 }
 
 .navbar__link::after {
@@ -90,8 +90,8 @@
 }
 
 .navbar__profile-icon {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     background-color: var(--color-green-dark);
     border-radius: 50%;
     display: flex;
@@ -102,7 +102,7 @@
 }
 
 .navbar__profile-icon .material-symbols-outlined {
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .navbar__notifications {
@@ -127,7 +127,7 @@
 }
 
 .navbar__notifications-icon {
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .navbar__notifications-badge {
@@ -406,3 +406,24 @@
         width: 240px;
     }
 }
+
+/* ===== TRANSPARENT ON HOMEPAGE ===== */
+.navbar--transparent {
+    background-color: transparent;
+    box-shadow: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar--transparent .navbar__link,
+.navbar--transparent .navbar__notifications-trigger {
+    color: #ffffff;
+}
+
+.navbar--transparent .navbar__link::after {
+    background-color: #ffffff;
+}
+
+.navbar__logo--light .navbar__logo-empower,
+.navbar__logo--light .navbar__logo-able {
+    color: #ffffff;
+}

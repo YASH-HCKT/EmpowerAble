@@ -8,10 +8,10 @@ function Hero() {
         const handleScroll = () => {
             if (!heroRef.current) return;
             const scrolled = window.scrollY;
-            const img = heroRef.current.querySelector('.hero__image');
+            const img = heroRef.current.querySelector('.hero__bg-image');
             if (img) {
-                // 8% parallax shift coupled with scale 1.1 (set in CSS)
-                img.style.transform = `translateY(${scrolled * 0.08}px) scale(1.1)`;
+                // Subtle parallax effect on the background image
+                img.style.transform = `translateY(${scrolled * 0.4}px)`;
             }
         };
 
@@ -21,27 +21,24 @@ function Hero() {
 
     return (
         <section className="hero" id="hero" ref={heroRef}>
-            {/* Background Animations */}
-            <div className="hero__blobs">
-                <div className="hero__blob hero__blob--1"></div>
-                <div className="hero__blob hero__blob--2"></div>
+            <div className="hero__bg">
+                <div className="hero__bg-image"></div>
+                <div className="hero__overlay"></div>
             </div>
-            <div className="hero__particles"></div>
 
-            <div className="hero__container" style={{ position: 'relative', zIndex: 10 }}>
-                <h1 className="hero__title animate-slide-up" style={{ animationDelay: '0s' }}>Empowering Care</h1>
+            <div className="hero__container">
                 <div className="hero__content">
+                    <h1 className="hero__title animate-slide-up" style={{ animationDelay: '0s' }}>
+                        Empowering Care : Care that moves with you
+                    </h1>
                     <p className="hero__text animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                        Empowering every ability through intelligent accessibility. A unified platform delivering safe navigation, real-time alerts, AI support, and inclusive community – built for a barrier-free future.
+                        Empowering every ability through intelligent support. A unified platform delivering safe navigation, real-time alerts, and an unwavering inclusive community.
                     </p>
                     <div className="hero__actions animate-slide-up" style={{ animationDelay: '0.4s' }}>
-                        <a href="/profile.html" className="btn-primary hero__cta">Get Started</a>
-                        <a href="#contact" className="btn-secondary hero__cta">Contact Us</a>
+                        <a href="/profile.html" className="btn-primary hero__cta">Explore Services</a>
+                        <a href="#contact" className="btn-primary hero__cta">Get Started</a>
                     </div>
                 </div>
-            </div>
-            <div className="hero__image-wrapper" style={{ position: 'relative', zIndex: 10 }}>
-                <img src="/images/hero.png" alt="Caregiver helping elderly person" className="hero__image" />
             </div>
         </section>
     )

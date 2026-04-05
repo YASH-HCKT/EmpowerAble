@@ -1,544 +1,177 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>EmpowerAble Community</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="/navbar-standard.css">
-    <script id="tailwind-config">tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#06372b",
-                        "accent-gold": "#06372b",
-                        "accent-bronze": "#2d4a43",
-                        "background-light": "#E8fac2",
-                        "background-dark": "#04211a",
-                        "card-beige": "#d9ebb6",
-                    },
-                    fontFamily: {
-                        "display": ["Public Sans", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "2xl": "1.25rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }</script>
+    <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#06372b","accent-gold":"#06372b","accent-bronze":"#2d4a43","background-light":"#E8fac2","background-dark":"#04211a","card-beige":"#d9ebb6"},fontFamily:{"display":["Public Sans","sans-serif"]},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","2xl":"1.25rem","full":"9999px"}}}}</script>
     <style>
-        :root {
-            --color-lime: #EBFAC2;
-            --color-lime-dark: #D4E8A0;
-            --color-green-dark: #114B31;
-            --color-green-medium: #1A6B45;
-            --color-amber: #FFBF00;
-            --color-amber-dark: #E6AC00;
-            --color-beige: #F0EFED;
-            --color-beige-light: #F5F4F2;
-            --color-white: #FFFFFF;
-            --color-black: #111111;
-            --max-width: 1400px;
-            --transition: all 0.3s ease;
-            --font-heading: 'aether', 'Aboreto', serif;
-            --font-body: 'aether', 'Inter', sans-serif;
-        }
-
-        @font-face {
-            font-family: 'aether';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url("https://static.parastorage.com/fonts/v2/d1f4aaca-ba32-45fe-a717-4dff34a09bca/v1/aether.latin.woff2") format("woff2");
-        }
-
-        @font-face {
-            font-family: 'aether';
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: url("https://static.parastorage.com/fonts/v2/b7cac872-10e6-48a7-aacc-39212836977c/v1/aether.latin.woff2") format("woff2");
-        }
-
-
-
-        body {
-            font-family: 'Public Sans', sans-serif;
-        }
-
-        .soft-gradient {
-            background: linear-gradient(135deg, #E8fac2 0%, #d9ebb6 100%);
-        }
-
-        .dark .soft-gradient {
-            background: linear-gradient(135deg, #04211a 0%, #06372b 100%);
-        }
+        :root{--color-lime:#EBFAC2;--color-lime-dark:#D4E8A0;--color-green-dark:#114B31;--color-green-medium:#1A6B45;--color-beige:#F0EFED;--color-white:#FFFFFF;--color-black:#111111;--max-width:1400px;--transition:all .3s ease;--font-heading:'aether','Aboreto',serif;--font-body:'aether','Inter',sans-serif}
+        @font-face{font-family:'aether';font-style:normal;font-weight:400;font-display:swap;src:url("https://static.parastorage.com/fonts/v2/d1f4aaca-ba32-45fe-a717-4dff34a09bca/v1/aether.latin.woff2") format("woff2")}
+        @font-face{font-family:'aether';font-style:normal;font-weight:700;font-display:swap;src:url("https://static.parastorage.com/fonts/v2/b7cac872-10e6-48a7-aacc-39212836977c/v1/aether.latin.woff2") format("woff2")}
+        body{font-family:'Public Sans',sans-serif}
+        .soft-gradient{background:linear-gradient(135deg,#E8fac2 0%,#d9ebb6 100%)}
+        .dark .soft-gradient{background:linear-gradient(135deg,#04211a 0%,#06372b 100%)}
+        .icon-pick{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:2px solid transparent;transition:all .2s ease;background:rgba(6,55,43,.06)}
+        .icon-pick:hover,.icon-pick.selected{border-color:#06372b;background:rgba(6,55,43,.15);transform:scale(1.1)}
+        .icon-pick.selected{box-shadow:0 0 0 3px rgba(6,55,43,.2)}
+        #create-modal .modal-body{max-height:80vh;overflow-y:auto}
+        .chat-bubble{animation:bubbleIn .3s ease}
+        @keyframes bubbleIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        .like-btn.active-like .material-symbols-outlined{color:#06372b;font-variation-settings:'FILL' 1}
+        .dislike-btn.active-dislike .material-symbols-outlined{color:#ef4444;font-variation-settings:'FILL' 1}
+        .search-glow:focus-within{box-shadow:0 0 0 3px rgba(6,55,43,.15)}
+        .tab-btn.active-tab{background:#06372b;color:#fff}
     </style>
 </head>
-
 <body class="bg-background-light dark:bg-background-dark dark:text-slate-100 min-h-screen text-primary">
-    <!-- Standardized Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="navbar__container">
-            <a href="/" class="navbar__logo">
-                <span class="navbar__logo-empower">Empower</span><span class="navbar__logo-able">Able</span>
-            </a>
-            <ul class="navbar__links">
-                <li><a href="/" class="navbar__link">Home</a></li>
-                <li><a href="/map.html" class="navbar__link">Explore Map</a></li>
-                <li><a href="/community.html" class="navbar__link">Community</a></li>
-                <li><a href="/ai-support.html" class="navbar__link">AI Support</a></li>
-                <li><a href="/profile.html" class="navbar__link">Profile</a></li>
-                <li><a href="/pricing.html" class="navbar__link">Pricing</a></li>
-            </ul>
-        </div>
-    </nav>
+    <nav class="navbar" id="navbar"><div class="navbar__container"><a href="/" class="navbar__logo"><span class="navbar__logo-empower">Empower</span><span class="navbar__logo-able">Able</span></a><ul class="navbar__links"><li><a href="/" class="navbar__link">Home</a></li><li><a href="/map.html" class="navbar__link">Explore Map</a></li><li><a href="/community.html" class="navbar__link">Community</a></li><li><a href="/ai-support.html" class="navbar__link">AI Support</a></li><li><a href="/profile.html" class="navbar__link">Profile</a></li><li><a href="/pricing.html" class="navbar__link">Pricing</a></li></ul></div></nav>
+
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-20">
-        <!-- Hero Banner Section -->
-        <section
-            class="relative rounded-2xl overflow-hidden mb-10 soft-gradient border border-accent-gold/10 p-8 md:p-12">
+        <!-- Hero -->
+        <section class="relative rounded-2xl overflow-hidden mb-8 soft-gradient border border-accent-gold/10 p-8 md:p-12">
             <div class="relative z-10 max-w-2xl">
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">EmpowerAble Community
-                </h2>
-                <p class="text-lg text-slate-700 dark:text-slate-300 mb-8 leading-relaxed">Connect. Encourage. Grow
-                    Together. Join specialized spaces designed for shared experiences and mutual elevation.</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">EmpowerAble Community</h2>
+                <p class="text-lg text-slate-700 dark:text-slate-300 mb-8 leading-relaxed">Connect. Encourage. Grow Together. Join specialized spaces designed for shared experiences and mutual elevation.</p>
                 <div class="flex flex-wrap gap-4">
-                    <button
-                        class="bg-primary hover:bg-primary/90 text-background-light font-semibold py-3 px-6 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/20 transition-all">
-                        <span class="material-symbols-outlined">add_circle</span>
-                        Create Community
-                    </button>
-                    <div
-                        class="flex items-center gap-2 bg-white/50 dark:bg-black/20 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/20">
-                        <span class="material-symbols-outlined text-slate-500">campaign</span>
-                        <span class="text-sm font-medium">12 New discussions today</span>
-                    </div>
+                    <button onclick="openCreateModal()" class="bg-primary hover:bg-primary/90 text-background-light font-semibold py-3 px-6 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/20 transition-all"><span class="material-symbols-outlined">add_circle</span>Create Community</button>
+                    <div id="discussions-trigger" class="flex items-center gap-2 bg-white/50 dark:bg-black/20 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/20 cursor-pointer hover:bg-white/70 transition-all"><span class="material-symbols-outlined text-slate-500">campaign</span><span class="text-sm font-medium">12 New discussions today</span></div>
                 </div>
             </div>
-            <!-- Abstract background shape -->
-            <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
-                <svg class="h-full w-full" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M44.7,-76.4C58.2,-69.3,70,-58.4,78.2,-45.3C86.4,-32.2,91.1,-16.1,90.4,-0.4C89.7,15.3,83.7,30.5,74.7,43.4C65.7,56.3,53.8,66.8,40.1,73.8C26.5,80.8,11.2,84.3,-3.8,90.9C-18.8,97.5,-33.5,107.2,-46.2,104.2C-58.9,101.2,-69.6,85.5,-77.3,70.5C-85,55.5,-89.7,41.2,-91.7,26.7C-93.7,12.2,-93,-2.5,-89.3,-16.4C-85.6,-30.3,-78.9,-43.3,-68.8,-53.6C-58.7,-63.9,-45.2,-71.5,-31.6,-78.5C-18,-85.5,-4.3,-91.9,10,-91.9C24.3,-91.9,31.2,-83.5,44.7,-76.4Z"
-                        fill="#C6A75E" transform="translate(100 100)"></path>
-                </svg>
-            </div>
+            <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none"><svg class="h-full w-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M44.7,-76.4C58.2,-69.3,70,-58.4,78.2,-45.3C86.4,-32.2,91.1,-16.1,90.4,-0.4C89.7,15.3,83.7,30.5,74.7,43.4C65.7,56.3,53.8,66.8,40.1,73.8C26.5,80.8,11.2,84.3,-3.8,90.9C-18.8,97.5,-33.5,107.2,-46.2,104.2C-58.9,101.2,-69.6,85.5,-77.3,70.5C-85,55.5,-89.7,41.2,-91.7,26.7C-93.7,12.2,-93,-2.5,-89.3,-16.4C-85.6,-30.3,-78.9,-43.3,-68.8,-53.6C-58.7,-63.9,-45.2,-71.5,-31.6,-78.5C-18,-85.5,-4.3,-91.9,10,-91.9C24.3,-91.9,31.2,-83.5,44.7,-76.4Z" fill="#C6A75E" transform="translate(100 100)"></path></svg></div>
         </section>
+
+        <!-- Search Bar -->
+        <div class="relative mb-6 search-glow rounded-2xl transition-all">
+            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+            <input type="text" id="search-input" placeholder="Search communities by name..." class="w-full pl-12 pr-4 py-4 rounded-2xl border border-accent-gold/15 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none text-base" oninput="handleSearch(this.value)">
+        </div>
+
+        <!-- Tabs: Discover / Joined -->
+        <div class="flex items-center gap-2 mb-6">
+            <button class="tab-btn active-tab px-5 py-2 rounded-full font-medium text-sm transition-all" onclick="switchTab('discover',this)">All Communities</button>
+            <button class="tab-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-sm transition-all" onclick="switchTab('joined',this)">Joined</button>
+        </div>
+
         <!-- Category Filters -->
         <div class="flex items-center gap-3 overflow-x-auto pb-6 scrollbar-hide" id="category-filters">
-            <button class="filter-btn px-5 py-2 rounded-full bg-primary text-white font-medium whitespace-nowrap active"
-                data-category="all">All Communities</button>
-            <button
-                class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap"
-                data-category="encouraging">Encouraging</button>
-            <button
-                class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap"
-                data-category="fitness">Fitness &amp; Mobility</button>
-            <button
-                class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap"
-                data-category="career">Career Growth</button>
-            <button
-                class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap"
-                data-category="emotional">Emotional Well-being</button>
+            <button class="filter-btn px-5 py-2 rounded-full bg-primary text-white font-medium whitespace-nowrap" data-category="all">All</button>
+            <button class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap" data-category="accessibility">Accessibility & Support</button>
+            <button class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap" data-category="emotional">Emotional Support</button>
+            <button class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap" data-category="general">General Community</button>
+            <button class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap" data-category="safety">Emergency & Safety</button>
+            <button class="filter-btn px-5 py-2 rounded-full bg-card-beige dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-gold/20 transition-colors whitespace-nowrap" data-category="ai">AI Guidance</button>
         </div>
+
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <!-- Main Content Area -->
             <div class="lg:col-span-8 space-y-10">
                 <!-- Community Grid -->
                 <section>
-                    <div class="flex items-center justify-between mb-6">
-                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Featured Spaces</h3>
-                        <a class="text-primary font-semibold text-sm hover:underline" href="#">View all</a>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="community-grid">
-                        <!-- Content will be injected by JS -->
-                    </div>
-                </section>
-                <!-- Trending Discussions -->
-                <section>
-                    <div class="flex items-center gap-2 mb-6">
-                        <span class="material-symbols-outlined text-primary">trending_up</span>
-                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Trending Discussions</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <!-- Post 1 -->
-                        <div class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10">
-                            <div class="flex gap-4">
-                                <div class="h-12 w-12 rounded-full flex-shrink-0 bg-cover bg-center"
-                                    data-alt="User avatar male portrait"
-                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2QwK1A4qbYuOcdcrUp92XG_3pIO0GWBvWkAJ5P9SdeNm3bDlVCzZ9PsVd81hnCXH30nizwasKfN34R6525uqfGGf1dGyXenlpbqGvvlO3KCAOY_21qX21FqYC38fsoJtUJY-H1T0LtH0fK31-Qfho7S8Ij76WsSuX4tE847sJUabNrTR3tNTGN506VWogUrqadBHBRUbO13H2bqRpLMvGMxD053RrB8ZbUYf74HQNqpLX5GDSLc-ZyWUQp8M8t51O5ZkMf9qcUYg')">
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between mb-1">
-                                        <h5 class="font-bold text-slate-900 dark:text-white">Marcus Chen <span
-                                                class="text-xs font-normal text-slate-500 ml-2">in Career Growth
-                                                Hub</span></h5>
-                                        <span class="text-xs text-slate-400">2h ago</span>
-                                    </div>
-                                    <h6 class="text-lg font-semibold mb-2">How do you handle disclosure during
-                                        interviews?</h6>
-                                    <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2 mb-4">I've been
-                                        debating whether to mention my accommodation needs during the first call or wait
-                                        until the offer. What's worked best for you all in tech roles?</p>
-                                    <div class="flex items-center justify-between">
-                                        <div class="flex items-center gap-4">
-                                            <button
-                                                class="flex items-center gap-1.5 text-slate-500 hover:text-primary transition-colors">
-                                                <span class="material-symbols-outlined text-lg">thumb_up</span>
-                                                <span class="text-xs font-bold">24</span>
-                                            </button>
-                                            <button
-                                                class="flex items-center gap-1.5 text-slate-500 hover:text-blue-500 transition-colors">
-                                                <span class="material-symbols-outlined text-lg">favorite</span>
-                                                <span class="text-xs font-bold">18 Support</span>
-                                            </button>
-                                            <button
-                                                class="flex items-center gap-1.5 text-slate-500 hover:text-amber-500 transition-colors">
-                                                <span class="material-symbols-outlined text-lg">lightbulb</span>
-                                                <span class="text-xs font-bold">9 Insightful</span>
-                                            </button>
-                                        </div>
-                                        <button class="text-xs font-bold text-primary flex items-center gap-1">
-                                            <span class="material-symbols-outlined text-sm">comment</span>
-                                            42 Comments
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Post 2 -->
-                        <div class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10">
-                            <div class="flex gap-4">
-                                <div class="h-12 w-12 rounded-full flex-shrink-0 bg-cover bg-center"
-                                    data-alt="User avatar female portrait"
-                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDiKvgSYHlocieK2uFfW83ruiJItoabrgSEPujVN8mIcag391TOpXjFsX0ASk9O6DrBEO2Wqc8xzv31ILrXlxl9IG_VA5VT4pu-cT6CudkTVuANKduJNk454ABuOeJA6Gqwl6wfKC8qfmYamkv9Aq-CmL9HocQUqLOgeADJrmYxFbV1HP9srcrrS6wyjRNypT_gXT6OZs7u0CHv9PHApvQLGYTf_KmYAT9vyTghcRj1UjBuDpcMzhquKTWFi5yHAcP2Uz7nltca7fs')">
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between mb-1">
-                                        <h5 class="font-bold text-slate-900 dark:text-white">Elena Rodriguez <span
-                                                class="text-xs font-normal text-slate-500 ml-2">in Adaptive
-                                                Fitness</span></h5>
-                                        <span class="text-xs text-slate-400">5h ago</span>
-                                    </div>
-                                    <h6 class="text-lg font-semibold mb-2">My first 5k completed using an adaptive
-                                        racer!</h6>
-                                    <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2 mb-4">Three months
-                                        ago I couldn't even imagine being on the track. Thanks to the advice from this
-                                        group on chair setup, I just crossed the finish line today.</p>
-                                    <div class="flex items-center justify-between">
-                                        <div class="flex items-center gap-4">
-                                            <button
-                                                class="flex items-center gap-1.5 text-slate-500 hover:text-primary transition-colors">
-                                                <span class="material-symbols-outlined text-lg">thumb_up</span>
-                                                <span class="text-xs font-bold">156</span>
-                                            </button>
-                                            <button
-                                                class="flex items-center gap-1.5 text-slate-500 hover:text-blue-500 transition-colors">
-                                                <span class="material-symbols-outlined text-lg">favorite</span>
-                                                <span class="text-xs font-bold">89 Support</span>
-                                            </button>
-                                        </div>
-                                        <button class="text-xs font-bold text-primary flex items-center gap-1">
-                                            <span class="material-symbols-outlined text-sm">comment</span>
-                                            12 Comments
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="flex items-center justify-between mb-6"><h3 class="text-2xl font-bold text-slate-900 dark:text-white" id="grid-title">All Communities</h3></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="community-grid"></div>
+                    <div id="no-results" class="hidden text-center py-12 text-slate-400"><span class="material-symbols-outlined text-5xl mb-3 block">search_off</span><p class="text-lg font-medium">No communities found</p></div>
                 </section>
             </div>
             <!-- Sidebar -->
             <aside class="lg:col-span-4 space-y-8">
-                <!-- Accessibility Quick Controls -->
                 <div class="bg-accent-gold/5 dark:bg-slate-800/40 p-6 rounded-2xl border border-accent-gold/20">
-                    <h4 class="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                        <span class="material-symbols-outlined text-accent-gold">visibility</span>
-                        A11y Features
-                    </h4>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-accent-gold">visibility</span>A11y Features</h4>
                     <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm font-medium">High Contrast</span>
-                            <button class="w-10 h-5 bg-slate-300 rounded-full relative">
-                                <div class="absolute left-1 top-1 bg-white w-3 h-3 rounded-full"></div>
-                            </button>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm font-medium">Text Size</span>
-                            <div class="flex bg-slate-200 dark:bg-slate-700 rounded-lg p-1">
-                                <button class="px-2 py-0.5 text-xs font-bold">A</button>
-                                <button
-                                    class="px-2 py-0.5 text-sm font-bold bg-white dark:bg-slate-600 rounded shadow-sm">A</button>
-                                <button class="px-2 py-0.5 text-base font-bold">A</button>
-                            </div>
-                        </div>
-                        <button
-                            class="w-full py-2 bg-primary/10 dark:bg-slate-700 rounded-xl text-sm font-bold flex items-center justify-center gap-2 text-primary">
-                            <span class="material-symbols-outlined text-lg">mic</span>
-                            Enable Voice Assist
-                        </button>
+                        <div class="flex items-center justify-between"><span class="text-sm font-medium">High Contrast</span><button class="w-10 h-5 bg-slate-300 rounded-full relative"><div class="absolute left-1 top-1 bg-white w-3 h-3 rounded-full"></div></button></div>
+                        <div class="flex items-center justify-between"><span class="text-sm font-medium">Text Size</span><div class="flex bg-slate-200 dark:bg-slate-700 rounded-lg p-1"><button class="px-2 py-0.5 text-xs font-bold">A</button><button class="px-2 py-0.5 text-sm font-bold bg-white dark:bg-slate-600 rounded shadow-sm">A</button><button class="px-2 py-0.5 text-base font-bold">A</button></div></div>
                     </div>
                 </div>
-                <!-- Today's Encouragement -->
-                <div
-                    class="bg-card-beige dark:bg-slate-800 p-6 rounded-2xl border border-accent-gold/10 relative overflow-hidden">
-                    <span
-                        class="material-symbols-outlined absolute -top-2 -left-2 text-6xl text-accent-gold/10 rotate-12">format_quote</span>
-                    <h4 class="font-bold text-slate-900 dark:text-white mb-3 text-sm tracking-widest uppercase">Today's
-                        Reflection</h4>
-                    <p class="italic text-slate-700 dark:text-slate-300 relative z-10">"Disability is not a brave
-                        struggle or courage in the face of adversity. Disability is an art form. It is an ingenious way
-                        of living."</p>
+                <div class="bg-card-beige dark:bg-slate-800 p-6 rounded-2xl border border-accent-gold/10 relative overflow-hidden">
+                    <span class="material-symbols-outlined absolute -top-2 -left-2 text-6xl text-accent-gold/10 rotate-12">format_quote</span>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-3 text-sm tracking-widest uppercase">Today's Reflection</h4>
+                    <p class="italic text-slate-700 dark:text-slate-300 relative z-10">"Disability is not a brave struggle or courage in the face of adversity. Disability is an art form. It is an ingenious way of living."</p>
                     <p class="mt-4 text-xs font-bold text-accent-gold">— Neil Marcus</p>
                 </div>
-                <!-- Top Contributors -->
-                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10">
+                <!-- Community Leaders -->
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10" id="leaders-section">
                     <h4 class="font-bold text-slate-900 dark:text-white mb-5">Community Leaders</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="h-10 w-10 rounded-full bg-cover bg-center" data-alt="Leader avatar portrait"
-                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvD2w-Ma0s8bzvCml7kNoX-QInUf9wNHZO9Zxq3p5Y95pCD7eXicdSmTfNd_59_pqPK58jrKvvKv4lsZF4c7tYkmoos7xKNr5hwXafi-UiODNVUI33JDOECJgR6U0ErGx54XWxCeCz2zAkDXhrrJ_jMC9tUZfhb6jj85BBA6aEmqes7Cx8m9YRP5qwwSq7Ed8QFyF5DhMr6-UA0qJubqqZkkMnol4WmzgNuBRhlBmlbKdtty0qVSOe8f-ROBYUm28Ne1BtKiAeMJI')">
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold">Sarah Jenkins</p>
-                                    <p class="text-[10px] text-slate-500 uppercase">Accessibility Coach</p>
-                                </div>
-                            </div>
-                            <span class="material-symbols-outlined text-primary">verified</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="h-10 w-10 rounded-full bg-cover bg-center" data-alt="Leader avatar portrait"
-                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCiq5Pu2L8l0VgcVHpNBoDYaY8cYeBlY8e8GTXkAyvfeBqNGom0ph_iN3oupVUJYI8zv0-sYJyw2rod5XE-_fI61xN2AcviQ78glngSxTUC0uz6gkWqEdQsn73GmHDoezgq5FF9Qe_CneVUcE9jMEBAXfO9xk4CwJ7uHN8vQr3zwpaznoB9nD76tyzsMhB0umcdIEhpaQjMWP7n3NKkcd_eVezYqsLHWG9M8VBSUyubZbnBIFLl_zdvkYJXQssFJS5K3ksSwMGX9K4')">
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold">David Kim</p>
-                                    <p class="text-[10px] text-slate-500 uppercase">Tech Mentor</p>
-                                </div>
-                            </div>
-                            <span class="material-symbols-outlined text-primary">verified</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="h-10 w-10 rounded-full bg-cover bg-center" data-alt="Leader avatar portrait"
-                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQ3w36StSVk-KfzLNMzR5IWrdj_JIoTpkn2HQAiXs4gPhfWsgh3zTkL81cshZG1XLvN02_oqSgeFpnc-jZ7-Dr1jMrKvy1kClayqzV4koBPbYxhSq_PmME-WfQcVSEG2hzpTyo0Jg22ZuQzdCUFf_1hch3oaMe74OiD9ADL1axY5lxDbMx9d4rst4oVpe4WQ8JUjSg4AGZ_0EKG5s1BDpZMfATqw_gBVo7oizPNaebd1LL1mrm95ncbLbjRP2l0y3X_mjbLroM70U')">
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold">Maya Patel</p>
-                                    <p class="text-[10px] text-slate-500 uppercase">Fitness Expert</p>
-                                </div>
-                            </div>
-                            <span class="material-symbols-outlined text-primary">verified</span>
-                        </div>
-                    </div>
-                    <button class="material-symbols-outlined text-primary">See all contributors</button>
+                    <div class="space-y-4" id="leaders-list"></div>
+                    <button onclick="showAllLeaders()" class="mt-5 w-full py-2.5 bg-primary/10 hover:bg-primary/20 text-primary text-sm font-bold rounded-xl flex items-center justify-center gap-2 transition-all"><span class="material-symbols-outlined text-base">group</span>See All Contributors</button>
                 </div>
-                <!-- Guidelines -->
                 <div class="bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10">
                     <h4 class="font-bold text-slate-900 dark:text-white mb-4">Guidelines</h4>
                     <ul class="text-sm space-y-3 text-slate-600 dark:text-slate-400">
-                        <li class="flex gap-2">
-                            <span class="material-symbols-outlined text-primary">check_circle</span>
-                            Be kind and supportive.
-                        </li>
-                        <li class="flex gap-2">
-                            <span class="material-symbols-outlined text-primary">check_circle</span>
-                            Respect medical privacy.
-                        </li>
-                        <li class="flex gap-2">
-                            <span class="material-symbols-outlined text-primary">check_circle</span>
-                            Share verified information.
-                        </li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-primary">check_circle</span>Be kind and supportive to all members.</li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-primary">check_circle</span>Respect medical privacy and boundaries.</li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-primary">check_circle</span>Share only verified or personal experiences.</li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-primary">check_circle</span>No hate speech or discriminatory language.</li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-primary">check_circle</span>Use descriptive titles for your discussions.</li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-primary">check_circle</span>Stay on topic within specific community spaces.</li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-primary">check_circle</span>Report any inappropriate behavior to moderators.</li>
                     </ul>
                 </div>
             </aside>
         </div>
     </main>
-    <footer class="mt-20 border-t border-accent-gold/20 bg-card-beige/20 dark:bg-black/20 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                <div class="col-span-2">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="material-symbols-outlined text-primary text-3xl">diversity_3</span>
-                        <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">EmpowerAble</h2>
-                    </div>
-                    <p class="max-w-sm text-slate-600 dark:text-slate-400">A modern community platform built on the
-                        pillars of accessibility, empathy, and professional excellence.</p>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-4">Community</h5>
-                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                        <li><a class="hover:text-primary" href="#">Guidelines</a></li>
-                        <li><a class="hover:text-primary" href="#">Safety Center</a></li>
-                        <li><a class="hover:text-primary" href="#">Help Hub</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-4">Platform</h5>
-                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                        <li><a class="hover:text-primary" href="#">Accessibility Statement</a></li>
-                        <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
-                        <li><a class="hover:text-primary" href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
+
+    <!-- Community Chat Modal -->
+    <div id="chat-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-[3000] flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl w-full max-w-2xl shadow-2xl flex flex-col" style="max-height:85vh">
+            <div class="flex items-center justify-between p-6 border-b border-slate-200 dark:border-slate-700">
+                <div class="flex items-center gap-3"><div id="chat-icon" class="p-2 bg-primary/10 rounded-xl text-primary"><span class="material-symbols-outlined">groups</span></div><div><h3 class="text-xl font-bold" id="chat-title">Community</h3><p class="text-xs text-slate-400" id="chat-members">0 members</p></div></div>
+                <button onclick="closeChatModal()" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"><span class="material-symbols-outlined">close</span></button>
             </div>
-            <div
-                class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-accent-gold/10 text-xs text-slate-500">
-                <p>© 2024 EmpowerAble. All rights reserved.</p>
-                <div class="flex gap-6 mt-4 md:mt-0">
-                    <a class="hover:text-primary transition-colors" href="#">Twitter</a>
-                    <a class="hover:text-primary transition-colors" href="#">Instagram</a>
-                    <a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
-                </div>
+            <div class="flex-1 overflow-y-auto p-6 space-y-4" id="chat-messages"></div>
+            <div class="p-4 border-t border-slate-200 dark:border-slate-700 flex gap-3">
+                <input type="text" id="chat-input" placeholder="Write a message..." class="flex-1 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 px-4 py-3 focus:outline-none focus:border-primary" onkeydown="if(event.key==='Enter')sendMessage()">
+                <button onclick="sendMessage()" class="bg-primary text-white px-5 py-3 rounded-xl font-bold hover:bg-primary/90 transition-all flex items-center gap-1"><span class="material-symbols-outlined text-lg">send</span></button>
             </div>
         </div>
-    </footer>
-    <div id="create-modal" class="fixed inset-0 bg-black/50 hidden z-[3000] flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-900 rounded-3xl w-full max-w-md p-8 shadow-2xl">
-            <h3 class="text-2xl font-bold mb-6">Create New Community</h3>
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Community Name</label>
-                    <input type="text" id="new-comm-name" class="w-full rounded-xl border-slate-200 dark:bg-slate-800"
-                        placeholder="e.g. Hope & Progress">
+    </div>
+
+    <!-- Create Community Modal -->
+    <div id="create-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-[3000] flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl w-full max-w-lg shadow-2xl">
+            <div class="modal-body p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-bold">Create New Community</h3>
+                    <button onclick="closeCreateModal()" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl"><span class="material-symbols-outlined">close</span></button>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Objective</label>
-                    <textarea id="new-comm-obj" class="w-full rounded-xl border-slate-200 dark:bg-slate-800"
-                        placeholder="What is this space for?"></textarea>
+                <!-- Icon / Image Picker -->
+                <div class="mb-5">
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-3">Community Icon</label>
+                    <div class="flex flex-wrap gap-3 mb-3" id="icon-grid"></div>
+                    <p class="text-xs text-slate-400 mb-2">Or upload a custom image:</p>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium text-primary hover:underline"><span class="material-symbols-outlined text-lg">upload</span>Choose from Gallery<input type="file" id="icon-upload" accept="image/*" class="hidden" onchange="handleImageUpload(event)"></label>
+                    <div id="upload-preview" class="hidden mt-2"><img id="preview-img" class="w-14 h-14 rounded-xl object-cover border-2 border-primary"></div>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Symbol (Material Icon
-                        Name)</label>
-                    <input type="text" id="new-comm-icon" class="w-full rounded-xl border-slate-200 dark:bg-slate-800"
-                        placeholder="e.g. heartbeat, star, groups">
-                    <p class="text-[10px] text-slate-400 mt-1">Visit Material Symbols for icon names.</p>
-                </div>
-                <div class="flex gap-4 pt-4">
-                    <button onclick="document.getElementById('create-modal').classList.add('hidden')"
-                        class="flex-1 py-3 rounded-xl border font-bold">Cancel</button>
-                    <button onclick="createNewCommunity()"
-                        class="flex-1 py-3 bg-primary text-white rounded-xl font-bold">Create</button>
+                <div class="space-y-4">
+                    <div><label class="block text-xs font-bold uppercase text-slate-400 mb-2">Community Name *</label><input type="text" id="new-comm-name" class="w-full rounded-xl border-slate-200 dark:bg-slate-800 px-4 py-3" placeholder="e.g. Hope & Progress"></div>
+                    <div><label class="block text-xs font-bold uppercase text-slate-400 mb-2">Motto</label><input type="text" id="new-comm-motto" class="w-full rounded-xl border-slate-200 dark:bg-slate-800 px-4 py-3" placeholder="e.g. Together We Rise"></div>
+                    <div><label class="block text-xs font-bold uppercase text-slate-400 mb-2">Type</label>
+                        <select id="new-comm-type" class="w-full rounded-xl border-slate-200 dark:bg-slate-800 px-4 py-3"><option value="accessibility">Accessibility & Support</option><option value="emotional">Emotional Support</option><option value="general">General Community</option><option value="safety">Emergency & Safety</option><option value="ai">AI Guidance</option></select>
+                    </div>
+                    <div><label class="block text-xs font-bold uppercase text-slate-400 mb-2">Description *</label><textarea id="new-comm-desc" class="w-full rounded-xl border-slate-200 dark:bg-slate-800 px-4 py-3" rows="3" placeholder="What is this space about?"></textarea></div>
+                    <div class="flex gap-4 pt-2">
+                        <button onclick="closeCreateModal()" class="flex-1 py-3 rounded-xl border border-slate-300 font-bold hover:bg-slate-50 transition-all">Cancel</button>
+                        <button onclick="createNewCommunity()" class="flex-1 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all">Create</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <footer class="mt-20 border-t border-accent-gold/20 bg-card-beige/20 dark:bg-black/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-2"><div class="flex items-center gap-2 mb-4"><span class="material-symbols-outlined text-primary text-3xl">diversity_3</span><h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">EmpowerAble</h2></div><p class="max-w-sm text-slate-600 dark:text-slate-400">A modern community platform built on the pillars of accessibility, empathy, and professional excellence.</p></div>
+                <div><h5 class="font-bold mb-4">Community</h5><ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400"><li><a class="hover:text-primary" href="#">Guidelines</a></li><li><a class="hover:text-primary" href="#">Safety Center</a></li><li><a class="hover:text-primary" href="#">Help Hub</a></li></ul></div>
+                <div><h5 class="font-bold mb-4">Platform</h5><ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400"><li><a class="hover:text-primary" href="#">Accessibility Statement</a></li><li><a class="hover:text-primary" href="#">Privacy Policy</a></li><li><a class="hover:text-primary" href="#">Terms of Service</a></li></ul></div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-accent-gold/10 text-xs text-slate-500"><p>© 2024 EmpowerAble. All rights reserved.</p><div class="flex gap-6 mt-4 md:mt-0"><a class="hover:text-primary" href="#">Twitter</a><a class="hover:text-primary" href="#">Instagram</a><a class="hover:text-primary" href="#">LinkedIn</a></div></div>
+        </div>
+    </footer>
+
     <script src="/navbar-standard.js"></script>
-    <script>
-        const communities = [
-            { id: 1, name: "Daily Motivation", category: "encouraging", members: "1.2k", icon: "sentiment_satisfied", color: "text-primary", desc: "A space to share morning affirmations, daily wins, and positive energy to start your day right." },
-            { id: 2, name: "Adaptive Fitness", category: "fitness", members: "850", icon: "fitness_center", color: "text-blue-500", desc: "Personalized routines, accessibility tips for gyms, and home-based mobility exercises for all levels." },
-            { id: 3, name: "Support Circle", category: "emotional", members: "2.4k", icon: "psychology", color: "text-purple-500", desc: "Safe, moderated discussions about emotional resilience, mental health, and navigating life's challenges." },
-            { id: 4, name: "Career Growth Hub", category: "career", members: "1.1k", icon: "work_history", color: "text-green-500", desc: "Mentorship, job listings from inclusive employers, and professional skill-building resources." },
-            { id: 5, name: "Step by Step", category: "encouraging", members: "500", icon: "trending_up", color: "text-amber-500", desc: "For those recovering from injury or adjusting to new mobility aids. Every small step counts." },
-            { id: 6, name: "Wheelchair Yoga", category: "fitness", members: "300", icon: "self_improvement", color: "text-teal-500", desc: "Seated yoga practices and breathwork specifically designed for limited mobility." }
-        ];
-
-        let joinedSpaces = new Set();
-
-        function renderCommunities(filter = 'all') {
-            const grid = document.getElementById('community-grid');
-            grid.innerHTML = '';
-
-            communities.forEach(c => {
-                if (filter !== 'all' && c.category !== filter) return;
-
-                const card = document.createElement('div');
-                card.className = "bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-accent-gold/10 shadow-sm hover:shadow-md transition-shadow group";
-
-                const isJoined = joinedSpaces.has(c.id);
-
-                card.innerHTML = `
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-slate-100 dark:bg-slate-700 rounded-xl ${c.color}">
-                            <span class="material-symbols-outlined text-3xl">${c.icon}</span>
-                        </div>
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">${c.members} Members</span>
-                    </div>
-                    <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">${c.name}</h4>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">${c.desc}</p>
-                    <button onclick="toggleJoin(this, ${c.id})" class="w-full py-2.5 rounded-xl border-2 border-primary transition-all font-bold ${isJoined ? 'bg-green-500 border-green-500 text-white' : 'text-primary hover:bg-primary hover:text-white'}">
-                        ${isJoined ? 'Already Joined' : 'Join Space'}
-                    </button>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function toggleJoin(btn, id) {
-            if (joinedSpaces.has(id)) {
-                joinedSpaces.delete(id);
-                btn.innerText = 'Join Space';
-                btn.className = "w-full py-2.5 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all";
-            } else {
-                joinedSpaces.add(id);
-                btn.innerText = 'Already Joined';
-                btn.className = "w-full py-2.5 rounded-xl border-2 border-green-500 bg-green-500 text-white font-bold transition-all";
-            }
-        }
-
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('bg-primary', 'text-white'));
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.add('bg-card-beige', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300'));
-
-                btn.classList.add('bg-primary', 'text-white');
-                btn.classList.remove('bg-card-beige', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300');
-
-                renderCommunities(btn.dataset.category);
-            });
-        });
-
-        const createBtn = document.querySelector('button:has(.material-symbols-outlined:contains("add_circle"))');
-        // Fix for "Create Community" click
-        document.querySelector('button i:contains("add_circle")')?.parentElement.addEventListener('click', () => {
-            document.getElementById('create-modal').classList.remove('hidden');
-        });
-        // Alternatively, find the button by text
-        Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('Create Community')).onclick = () => {
-            document.getElementById('create-modal').classList.remove('hidden');
-        };
-
-        function createNewCommunity() {
-            const name = document.getElementById('new-comm-name').value;
-            const obj = document.getElementById('new-comm-obj').value;
-            const icon = document.getElementById('new-comm-icon').value || 'groups';
-
-            if (!name || !obj) return alert('Please fill in name and objective');
-
-            const newId = communities.length + 1;
-            communities.push({
-                id: newId,
-                name: name,
-                category: 'encouraging', // default for user created for now
-                members: '1 Member',
-                icon: icon,
-                color: 'text-primary',
-                desc: obj
-            });
-
-            document.getElementById('create-modal').classList.add('hidden');
-            renderCommunities();
-            alert('Community created successfully!');
-        }
-
-        renderCommunities();
-    </script>
+    <script src="/community-app.js"></script>
 </body>
-
 </html>

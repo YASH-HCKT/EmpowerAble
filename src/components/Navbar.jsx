@@ -12,6 +12,18 @@ function Navbar() {
     // Mock user state (normally would come from Auth context)
     const [user, setUser] = useState(null); // Set to { name: 'Gaurav', email: 'gaurav@example.com' } to test logged in state
 
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        // Initial check
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const getActiveClass = (path) => {
         return location.pathname === path ? 'navbar__link--active' : '';
     };
@@ -69,10 +81,13 @@ function Navbar() {
         }
     ];
 
+    const isHome = location.pathname === '/';
+    const navbarClasses = `navbar ${isHome && !scrolled ? 'navbar--transparent' : ''}`;
+
     return (
-        <nav className="navbar" id="navbar">
+        <nav className={navbarClasses} id="navbar">
             <div className="navbar__container">
-                <Link to="/" className="navbar__logo">
+                <Link to="/" className={`navbar__logo ${isHome && !scrolled ? 'navbar__logo--light' : ''}`}>
                     <span className="navbar__logo-empower">Empower</span><span className="navbar__logo-able">Able</span>
                 </Link>
                 <ul className="navbar__links">
