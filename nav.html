@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans | EmpowerAble</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aboreto&family=Inter:wght@300;400;500;600;700&family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/navbar-standard.css">
+    <style>
+        :root {
+            --color-lime: #EBFAC2;
+            --color-green-dark: #114B31;
+            --color-amber: #FFBF00;
+            --font-heading: 'aether', 'Aboreto', serif;
+            --font-body: 'aether', 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        @font-face {
+            font-family: 'aether';
+            font-style: normal;
+            font-weight: 400;
+            src: url("https://static.parastorage.com/fonts/v2/d1f4aaca-ba32-45fe-a717-4dff34a09bca/v1/aether.latin.woff2") format("woff2");
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            margin: 0;
+        }
+
+
+
+        /* Pricing Section Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .plan-gradient {
+            height: 120px;
+            width: 100%;
+            mask-image: linear-gradient(to bottom, black, transparent);
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            opacity: 0.6;
+        }
+
+        .gradient-blue {
+            background: radial-gradient(circle at top, #3b82f6, transparent);
+        }
+
+        .gradient-purple {
+            background: radial-gradient(circle at top, #a855f7, transparent);
+        }
+
+        .gradient-green {
+            background: radial-gradient(circle at top, #10b981, transparent);
+        }
+
+        .toggle-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 999px;
+            padding: 4px;
+        }
+
+        .toggle-option {
+            padding: 8px 20px;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-option.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .navbar__container {
+                padding: 0 24px;
+            }
+
+            .navbar__links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Standardized Navigation -->
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-20 pt-32 text-center">
+        <div class="flex flex-col items-center mb-16">
+            <h1 class="text-5xl font-bold mb-4 tracking-tight">Choose the Perfect Plan for You</h1>
+            <p class="text-slate-400 max-w-2xl text-lg mb-8">
+                Empower your independence with plans tailored to your needs. Whether you're exploring locally or
+                managing care globally, we have you covered.
+            </p>
+
+            <div class="toggle-btn flex items-center">
+                <div class="toggle-option active">Monthly</div>
+                <div class="toggle-option">Annually</div>
+                <span class="ml-4 text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">Save
+                    25%</span>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Starter Plan -->
+            <div class="glass-card flex flex-col items-start p-8 text-left">
+                <div class="plan-gradient gradient-blue -m-8 mb-6"></div>
+                <h3 class="text-2xl font-bold mb-2">Starter Plan</h3>
+                <p class="text-slate-400 text-sm mb-6">Essential accessibility features for local exploration and daily
+                    support.</p>
+                <div class="flex items-baseline gap-1 mb-8">
+                    <span class="text-4xl font-bold">$0.00</span>
+                    <span class="text-slate-500">/ monthly</span>
+                </div>
+                <button
+                    class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 font-bold transition-all mb-10">Start
+                    for Free</button>
+
+                <div class="space-y-4 w-full">
+                    <p class="text-xs uppercase tracking-widest text-slate-500 font-bold">Plan Details</p>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-blue-400 text-lg">check_circle</span>
+                        <span>Local Map Access (Basic Search)</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-blue-400 text-lg">check_circle</span>
+                        <span>Community Access</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-blue-400 text-lg">check_circle</span>
+                        <span>Create & Join Communities</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-blue-400 text-lg">check_circle</span>
+                        <span>AI Chat (Limited messages/day)</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-blue-400 text-lg">check_circle</span>
+                        <span>Emergency Alert Button</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-blue-400 text-lg">check_circle</span>
+                        <span>Accessibility Issue Reporting</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-blue-400 text-lg">check_circle</span>
+                        <span>Basic Route Guidance</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-blue-400 text-lg">check_circle</span>
+                        <span>Standard Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Creator Plan (Featured) -->
+            <div class="glass-card flex flex-col items-start p-8 text-left relative overflow-hidden border-white/20">
+                <div class="plan-gradient gradient-purple -m-8 mb-6"></div>
+                <div
+                    class="absolute top-4 right-4 bg-purple-500 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
+                    Most Popular</div>
+                <h3 class="text-2xl font-bold mb-2">Pro Plan</h3>
+                <p class="text-slate-400 text-sm mb-6">For power users who need country-wide access and advanced AI
+                    support.</p>
+                <div class="flex items-baseline gap-1 mb-8">
+                    <span class="text-4xl font-bold">$4.99</span>
+                    <span class="text-slate-500">/ monthly</span>
+                </div>
+                <button
+                    class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-700 font-bold transition-all mb-10 shadow-lg shadow-purple-600/20">Upgrade
+                    Now</button>
+
+                <div class="space-y-4 w-full">
+                    <p class="text-xs uppercase tracking-widest text-slate-500 font-bold">Plan Details</p>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-purple-400 text-lg">check_circle</span>
+                        <span>Unlimited AI Conversations</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-purple-400 text-lg">check_circle</span>
+                        <span>Voice AI Assistant</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-purple-400 text-lg">check_circle</span>
+                        <span>Advanced Route Optimization</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-purple-400 text-lg">check_circle</span>
+                        <span>Real-time Accessibility Alerts</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-purple-400 text-lg">check_circle</span>
+                        <span>Priority Community Support</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-purple-400 text-lg">check_circle</span>
+                        <span>Custom Accessibility Preferences</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-purple-400 text-lg">check_circle</span>
+                        <span>Emergency Contact Automation</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-purple-400 text-lg">check_circle</span>
+                        <span>Offline Map Mode</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="glass-card flex flex-col items-start p-8 text-left">
+                <div class="plan-gradient gradient-green -m-8 mb-6"></div>
+                <h3 class="text-2xl font-bold mb-2">For Organizations</h3>
+                <p class="text-slate-400 text-sm mb-6">Unlimited global accessibility and managed care support for
+                    organizations.</p>
+                <div class="flex items-baseline gap-1 mb-8">
+                    <span class="text-4xl font-bold">$29.99</span>
+                    <span class="text-slate-500">/ monthly</span>
+                </div>
+                <button
+                    class="w-full py-3 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/50 text-emerald-400 font-bold transition-all mb-10">Book
+                    Demo</button>
+
+                <div class="space-y-4 w-full">
+                    <p class="text-xs uppercase tracking-widest text-slate-500 font-bold">Plan Details</p>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                        <span>Multi-user dashboard</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                        <span>Accessibility data analytics</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                        <span>Infrastructure reporting insights</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                        <span>API access</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                        <span>Admin controls</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                        <span>Bulk user management</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                        <span>Dedicated support</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                        <span>Custom branding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-20 text-slate-600 border-t border-white/5">
+        <p>© 2026 EmpowerAble. All rights reserved.</p>
+    </footer>
+    <script src="/navbar-standard.js"></script>
+</body>
+
+</html>
