@@ -6,6 +6,9 @@
 
 ## [Unreleased] — In Progress
 
+### Refactor
+- Moved `profilep.html` → `public/profile.html` (cleaner public assets structure)
+
 ### Navigation & UI
 - Finalized high-fidelity UI/UX for the main navigation interface (`nav.html`)
 - Implemented mobile-first, elder-friendly layout with large touch targets
@@ -27,7 +30,7 @@
 - Location-based logic to dynamically surface the nearest hospitals on SOS
 - Real-time alert dispatch on emergency activation
 
-### Profile Page (`profilep.html`)
+### Profile Page (`public/profile.html`)
 - User profile and authentication system
 - Login / registration flow
 - Health profile settings and preferences
@@ -99,10 +102,11 @@
 ```
 hacktropica/
 ├── nav.html          # Main navigation interface
-├── profilep.html     # User profile & auth page
 ├── CHANGELOG.md      # This file
 ├── app_error.log     # Application error logs
 ├── database.db       # Root SQLite database
+├── public/
+│   └── profile.html  # User profile & auth page
 └── mapp/
     ├── map.html      # Hospital map locator
     ├── app.py        # Flask backend server
