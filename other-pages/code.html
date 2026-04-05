@@ -6,7 +6,8 @@
 <title>EmpowerAble | Your Intelligent Care Companion</title>
 <!-- Tailwind CSS v3 with plugins -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
+    <link href="/navbar-standard.css" rel="stylesheet">
+    <script>
     tailwind.config = {
       theme: {
         extend: {
@@ -53,24 +54,7 @@
 </head>
 <body class="antialiased overflow-x-hidden">
 <!-- BEGIN: MainHeader -->
-<header class="fixed top-0 w-full z-50 glass-effect border-b border-brand-accent/20" data-purpose="navigation">
-<nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-<div class="flex items-center space-x-2">
-<div class="w-8 h-8 bg-brand-accent rounded-full flex items-center justify-center">
-<div class="w-4 h-4 bg-brand-charcoal rounded-full"></div>
-</div>
-<span class="text-xl font-bold tracking-tight">EmpowerAble</span>
-</div>
-<div class="hidden md:flex space-x-8 font-medium">
-<a class="hover:text-black transition" href="#">Features</a>
-<a class="hover:text-black transition" href="#">Privacy</a>
-<a class="hover:text-black transition" href="#">Support</a>
-</div>
-<button class="bg-brand-charcoal text-white px-6 py-2.5 rounded-full font-medium hover:bg-black transition shadow-sm">
-        Sign In
-      </button>
-</nav>
-</header>
+    <nav class="navbar" id="navbar"></nav>
 <!-- END: MainHeader -->
 <main class="pt-20">
 <!-- BEGIN: HeroSection -->
@@ -283,4 +267,5 @@
 </div>
 </footer>
 <!-- END: Footer -->
+    <script src="/navbar-standard.js"></script>
 </body></html>
